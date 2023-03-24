@@ -1,0 +1,44 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+Сотрудник
+{% endblock title %}
+{% block content %}
+<h4 class="title_2">{{ request.user.username }}, Вы смотрите сотрудника</h4>
+<table class="table-deitail">
+    <table class="table_blur">
+        <thead>
+           <tr>
+               <th scope="col">Фамилия</th>
+               <th scope="col">Имя</th>
+               <th scope="col">Отчество</th>
+               <th scope="col">ИНН</th>
+               <th scope="col">Должность</th>
+               <th scope="col">К-во детей</th>
+               <th scope="col">Дополнения</th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr>       
+               <th scope="row">{{ staff.surname }}</th>
+               <th scope="row">{{ staff.name }}</th>
+               <th scope="row">{{ staff.patronimic }}</th>
+               <th scope="row">{{ staff.ITN }}</th>
+               <th scope="row">{{ staff.post }}</th>
+               <th scope="row">{{ staff.dependents }}</th>
+               <th scope="row">{{ staff.description }}</th>
+            </tr>
+        </tbody>
+    </table>
+</table> 
+<p></p>   
+<div class="mx-auto">
+    <a href="{% url 'staff_edit' staff.id %}" class="btn-outline" role="button" >Редактировать</a>
+    <p></p>
+    <a href="{% url 'staff_delete' staff.id %}" class="btn-secondary" role="button">Удалить</a>
+        <br>
+    
+</div>    
+    <p></p>
+
+
+    {% endblock content %}

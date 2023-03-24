@@ -1,0 +1,28 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %} Posts {% endblock title %}
+
+{% block content %}
+
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<hr>
+  <form method="get">
+    {{ filter.form.as_p }}
+    <input type="submit" />
+      <hr>
+  </form>
+    {% for obj in filter.qs %}
+        {{ obj.title }} -- {{ obj.category }}  -- {{ obj.dateCreate|date:'d M Y' }} <br />
+    {% endfor %}
+</body>
+
+{% endblock content %}
+
+</html>

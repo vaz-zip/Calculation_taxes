@@ -1,0 +1,48 @@
+{% extends 'flatpages/default_1.html' %}
+{% block title %}
+Выплаты
+{% endblock title %}
+<!-- <link href="{% url 'static/css/styles1.css' %}" rel="stylesheet" /> -->
+{% block content %}
+<p></p>
+    <table class="table_blur">
+        <thead>
+           <tr>
+               <th scope="col">Фамилия</th>
+               <th scope="col">Дата выплаты</th>
+               <th scope="col">Начислено</th>
+               <th scope="col">Соц.вычет</th>
+               <th scope="col">Коэф. ал.</th>
+               <th scope="col">Алименты</th>
+               <th scope="col">НДФЛ</th>
+               <th scope="col">Выплачено</th>
+               <th scope="col">Единый налог</th>
+               <th scope="col">Страх. от НС</th>
+               <th scope="col">Дополнения</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <th scope="row">{{ accruals_and_taxes.worker }}</th>
+               <th scope="row">{{ accruals_and_taxes.payment_date }}</th>
+               <th scope="row">{{ accruals_and_taxes.accrued }}</th>
+               <th scope="row">{{ accruals_and_taxes.social_deductions }}</th>
+               <th scope="row">{{ accruals_and_taxes.alimony }}</th>
+               <th scope="row">{{ accruals_and_taxes.alimony_tax }}</th>
+               <th scope="row">{{ accruals_and_taxes.income_tax }}</th>
+               <th scope="row">{{ accruals_and_taxes.salary }}</th>
+               <th scope="row">{{ accruals_and_taxes.single_tax }}</th>
+               <th scope="row">{{ accruals_and_taxes.injury_insurance }}</th>
+               <th scope="row">{{ accruals_and_taxes.description|truncatechars:12 }}</th>
+            </tr>
+        </tbody>
+    </table>
+  <P></P>
+    <div class="mx-auto">
+        <a href="{% url 'char_edit' accruals_and_taxes.id %}" class="btn-outline" role="button" >Редактировать</a>
+        <p></p>
+        <a href="{% url 'char_delete' accruals_and_taxes.id %}" class="btn-outline" role="button" >Удалить</a>
+        <p></p>
+    </div>    
+     
+{% endblock content %}

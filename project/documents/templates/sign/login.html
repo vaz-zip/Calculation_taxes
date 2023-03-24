@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block content %}
+<h2 class="enter-sistem"> Войти в систему </h2>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table class="table_login">
+        <tr>
+            <td class="form_us">{{ form.username.label_tag }}</td>
+            <td class="form_us">{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td class="form_us">{{ form.password.label_tag }}</td>
+            <td class="form_us">{{ form.password }}</td>
+        </tr>
+    </table>
+    <br>
+    <input class="enter-log" type="submit" value="Войти">
+</form>
+<br>
+<button class="reg-user-log"><a class="user-log" href="/sign/signup"> Регистрация </a></button>
+{% endblock %}

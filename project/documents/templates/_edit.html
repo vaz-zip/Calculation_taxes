@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} Редактировать документ {% endblock title %}
+
+{% block content %}
+<p></p>
+<h4 class="edit-doc">{{ request.user.username }}, Вы редактируете документ</h4>
+<form class="edit-doc-doc" method="POST">
+    {% csrf_token %}
+    <table class="table-edit" >{{ form }}</table>
+    {% if object %}
+    {% include "photo.html" %}
+    {% endif %}
+    <br>
+    <input class="btn-edit" type="submit" value="Редактировать">
+    <br>
+</form>
+{% endblock content %}
