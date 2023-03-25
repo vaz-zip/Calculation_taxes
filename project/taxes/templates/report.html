@@ -1,0 +1,99 @@
+{% extends 'flatpages/default_1.html' %}
+{% block title %}
+Выплаты
+{% endblock title %}
+<!-- <link href="{% url 'static/css/styles1.css' %}" rel="stylesheet" /> -->
+{% block content %}
+
+<h5 class="title_1">User: {{ request.user.username }}, ID={{ request.user.id }}, всего выплат в базe: {{ accruals_and_taxes.count }}</h5>
+
+
+   {% if accruals_and_taxes %}
+   <!-- Перед таблицей добавим форму для поиска -->
+   <!-- <h4 class="title_2">Поиск выплат</h4> -->
+
+<form class="search-doc" method="GET">
+ {{ filter.form }}
+<p></p>
+<div class="d-grid gap-3 col-3 mx-auto">
+    <input type="submit" class="btn-sm" value="Сформировать отчет">
+</div>   
+</form>
+    <br>
+    <table class="table_blur">
+        <thead>
+           <tr>
+               <th scope="col">Фамилия</th>
+               <th scope="col">Дата выплаты</th>
+               <th scope="col">Начислено</th>
+               <th scope="col">Соц.вычет</th>
+               <th scope="col">Коэф. ал.</th>
+               <th scope="col">Алименты</th>
+               <th scope="col">НДФЛ</th>
+               <th scope="col">Выплачено</th>
+               <th scope="col">Единый налог</th>
+               <th scope="col">Страх. от НС</th>
+               <th scope="col">Дополнения</th>
+            </tr>
+          
+        </thead>
+        <tbody>
+            
+            {% for accruals_and_taxes in accruals_and_taxes %}  <!--in documents filter.qs%} -->
+           <tr>
+            <th scope="row">
+                <a href="{% url 'charges' accruals_and_taxes.id %}" class="link-dark">{{ accruals_and_taxes.worker|truncatechars:12 }}</a>
+               </th>  
+               <th scope="row">{{ accruals_and_taxes.payment_date }}</th>
+               <th scope="row">{{ accruals_and_taxes.accrued }}</th>
+               <th scope="row">{{ accruals_and_taxes.social_deductions }}</th>
+               <th scope="row">{{ accruals_and_taxes.alimony }}</th>
+               <th scope="row">{{ accruals_and_taxes.alimony_tax }}</th>
+               <th scope="row">{{ accruals_and_taxes.income_tax }}</th>
+               <th scope="row">{{ accruals_and_taxes.salary }}</th>
+               <th scope="row">{{ accruals_and_taxes.single_tax }}</th>
+               <th scope="row">{{ accruals_and_taxes.injury_insurance }}</th>
+               <th scope="row">{{ accruals_and_taxes.description|truncatechars:12 }}</th>
+   
+            </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+       
+   {% else %}
+  
+       <h2 class="doc-none">У Вас пока нет выплат!</h2>
+
+   {% endif %}
+
+   <!-- <div class="paginat">
+   {% if is_paginated %}
+   <span>Страницы: </span> -->
+       <!-- Если доступна предыдущая страница, то даём ссылку на неё и самую первую страницу -->
+       <!-- {% if page_obj.has_previous %}
+           <a href="?page=1">Первая</a><span>&nbsp;</span>
+           <a href="?page={{ page_obj.previous_page_number }}"><</a>
+       {% endif %} -->
+   
+       <!-- Показываем только текущую страницу и ближайшие к ней, чтобы список не тянулся и не захламлял страницу -->
+       <!-- {% for num in page_obj.paginator.page_range %}
+           {% if page_obj.number == num %}
+               <a><b>{{ page_obj.number }}</b></a><span>&nbsp;</span>
+           {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+               <a href="?page={{ num }}">{{ num }}</a><span>&nbsp;</span>
+           {% endif %}
+       {% endfor %} -->
+   
+       <!-- Если есть следующая страница, то даём ссылку на неё и на самую последнюю страницу -->
+       <!-- {% if page_obj.has_next %}
+           <a href="?page={{ page_obj.next_page_number }}">></a><span>&nbsp;</span>
+           <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
+       {% endif %}
+     <span style ="color: grey;">&nbsp;&nbsp;(Показаны документы с {{ page_obj.start_index }} по {{ page_obj.end_index }})</span>
+   {% endif %} -->
+   </div>
+    <div class="nav-link_1">
+        <p></p>
+        <!-- <a class="nav-link_1" href="/char_create">Добавить выплату</a> -->
+    </div >
+{% endblock content %}

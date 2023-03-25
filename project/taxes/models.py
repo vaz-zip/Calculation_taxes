@@ -36,7 +36,7 @@ class Staff(models.Model):
 
 class Accruals_and_taxes(models.Model):
     worker = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Работник')
-    reporting_year = models.CharField(max_length=4, choices=POSITIONS, default=y_2023, verbose_name='Год')
+    reporting_year = models.CharField(max_length=4, choices=POSITIONS, default="", verbose_name='Год')
     reporting_quarter = models.CharField(max_length=6, choices=POSITIONS_1, default=three_month, verbose_name='Квартал')
     reporting_month = models.CharField(max_length=4, choices=POSITIONS_2, default=january, verbose_name='Месяц')
     payment_date = models.DateField(verbose_name='Дата выплаты')

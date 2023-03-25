@@ -18,4 +18,8 @@ class ChargesFilter(FilterSet):
         fields = ('worker', 'payment_date')
         
 
-   
+
+class ReportFilter(FilterSet):
+    class Meta:
+        model = Accruals_and_taxes
+        fields = ('reporting_month', 'reporting_quarter', 'reporting_year')   

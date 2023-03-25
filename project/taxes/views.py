@@ -5,7 +5,7 @@ from datetime import datetime
 from django.core.paginator import Paginator
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView #, w, RedirectView
 from .models import Staff, Accruals_and_taxes
-from .filters import StaffFilter, ChargesFilter
+from .filters import StaffFilter, ChargesFilter, ReportFilter
 from .forms import StaffCreateForm, ChargesCreateForm
 
 
@@ -83,6 +83,27 @@ class ChargesList(ListView):
        #  context['list_in_page'] = self.paginate_by
         context['filter'] = ChargesFilter(self.request.GET, queryset=self.get_queryset())
         return context
+    
+
+class FinreportList(ListView):
+    model = Accruals_and_taxes
+    template_name = 'report.html'
+    context_object_name = 'accruals_and_taxes'
+    filter_class = ReportFilter
+    # paginate_by = 3
+
+    def get_queryset(self):
+        # .filter(author_id=self.request.user.id))
+        self.filter = self.filter_class(self.request.GET, super().get_queryset())
+        return self.filter.qs.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+    #     # context['time_now'] = datetime.now()
+       #  context['list_in_page'] = self.paginate_by
+        context['filter'] = ReportFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+    
 
 
 class СhargesDetailView(DetailView):
