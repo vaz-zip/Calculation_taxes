@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from datetime import datetime
 from django.core.paginator import Paginator
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView #, w, RedirectView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Staff, Accruals_and_taxes
 from .filters import StaffFilter, ChargesFilter, ReportFilter
 from .forms import StaffCreateForm, ChargesCreateForm
@@ -14,7 +14,7 @@ class StaffList(ListView):
     template_name = 'staff.html'
     context_object_name = 'staff'
     queryset = Staff.objects.all()
-    filter_class = StaffFilter  # вновь
+    filter_class = StaffFilter
     paginate_by = 3
 
     def get_queryset(self):
