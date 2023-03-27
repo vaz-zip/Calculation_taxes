@@ -1,10 +1,7 @@
 {% extends 'flatpages/default.html' %}
-{% block title %}
-Удаление сотрудника
-{% endblock title %}
 {% block content %}
 <p></p>
-<h4 class="delete-doc">{{ request.user.username }}, Вы удаляете документ</h4>
+<h4 class="delete-doc">{{ request.user.username }}, Вы удаляете выплату</h4>
 <hr>
 <table class="table_blur">
     <thead>
@@ -40,17 +37,11 @@
 </table>
 <hr>
 <body>
-    <p></p>
-
-    <br>
-    
     <form method="POST">
              {% csrf_token %}
-            <input type="submit" class="btn" value="Подтвердить удаление">
-            <br>
+            <div class="btn-wrapper">
+                <input type="submit" class="btn" value="Подтвердить удаление">
+            </div>
     </form>
-    
-    
 </body>
-
 {% endblock content %}

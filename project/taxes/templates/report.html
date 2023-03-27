@@ -1,11 +1,8 @@
 {% extends 'flatpages/default.html' %}
-{% block title %}
-    Выплаты
-{% endblock title %}
 {% block content %}
     <h5 class="title_1"> User: {{ request.user.username }}, 
         ID={{ request.user.id }}, 
-        Ваших сотрудников в базe: {{ paginator.count }} </h5>
+        Ваших сотрудников в базe: {{ accruals_and_taxes.count }} </h5>
     
     {% if accruals_and_taxes %}
         <form class="search-doc" method="GET">
@@ -50,7 +47,7 @@
             </tbody>
         </table>
     {% else %}
-        <h2 class="doc-none">У Вас пока нет выплат!</h2>
+        <h2 class="doc-none">У Вас пока нет отчетов!</h2>
     {% endif %}
     <p></p>
 {% endblock content %}

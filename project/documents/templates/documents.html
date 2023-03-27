@@ -1,17 +1,8 @@
 {% extends 'flatpages/default.html' %}
-{% block title %}
-Документы
-{% endblock title %}
-<!-- <link href="{% url 'static/css/styles.css' %}" rel="stylesheet" /> -->
 {% block content %}
-
 <h5 class="title_1">User: {{ request.user.username }}, ID={{ request.user.id }}, Ваших документов в базe: {{ paginator.count }}</h5>
-
-
    {% if documents %}
-   <!-- Перед таблицей добавим форму для поиска -->
    <h4 class="title_2">Найти документ</h4>
-
 <form class="search-doc" method="GET">
  {{ filter.form }}
 <p></p>

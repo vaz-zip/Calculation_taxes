@@ -219,7 +219,8 @@ p.text-break {
 
 .foto, .foto1 {
     display: flex;
-    margin-left: 10px;
+    /* margin-left: 10px; */
+    margin: 1em;
     justify-content: center;
     align-items: center;
 }

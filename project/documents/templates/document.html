@@ -1,10 +1,5 @@
 {% extends 'flatpages/default.html' %}
-{% block title %}
-Документы
-{% endblock title %}
-<!-- <link href="{% url 'static/css/styles.css' %}" rel="stylesheet" /> -->
 {% block content %}
-
 <table class="table-deitail">
     <thead>
        <tr>
@@ -12,9 +7,7 @@
            <th scope="col1">Тип документа</th>
            <th scope="col1">№ документа</th>
            <th scope="col1">Дата документа</th>
-        
-             
-       </tr>
+           </tr>
     </thead>
     <tbody>
        <tr>
@@ -26,21 +19,19 @@
     </tbody> 
 </table>
 <hr>
-        <!-- <div class="texts"> -->
             <h3 class="fw-bold">Описание</h3>
             <p class="text-break">{{ document.textDocument }}</p>
-        <!-- </div>        -->
-            <!-- <h3 class="fw-bold">Сканы документов</h3>    -->
-<br>
+
 <div class="foto">    
        {% for image in document.images.all %}
        <img src="{{ image.file.url }}" class="scale" overflow="hidden"  width="300px" height="auto"></img> 
+       
        <form action="{% url 'delete-image' image.id %}" method="POST">
+
            {% csrf_token %}
            <button type="submit" class="delete_button" value="main_button">
             <img src="/static/delete.png" alt="Удалить" title="Удалить" width="16" height="16">
            </button>
-           <!-- <input type="submit" label="X"> -->
        </form>
 
     {% endfor %}

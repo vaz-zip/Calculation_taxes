@@ -1,7 +1,4 @@
 {% extends 'flatpages/default.html' %}
-{% block title %}
-    Добавление сотрудника 
-{% endblock title %}
 {% block content %}
     <h4 class="title_2">{{ request.user.username }}, Вы добавляете сотрудника</h4>
     <form class="create-doc" method="POST" enctype="multipart/form-data">
