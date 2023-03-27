@@ -32,17 +32,13 @@
 </table>
 <hr>
 <body>
-    <p></p>
-
-    <br>
-    
     <form method="POST">
              {% csrf_token %}
-            <input type="submit" class="mx-auto-delete" value="Подтвердить удаление">
-            <br>
+             <div class="btn-wrapper">
+            <input type="submit" class="btn" value="Подтвердить удаление">
+            </div>
+          
     </form>
-    
-    
 </body>
 
 {% endblock content %}

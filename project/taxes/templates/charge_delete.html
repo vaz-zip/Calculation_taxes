@@ -1,4 +1,4 @@
-{% extends 'flatpages/default_1.html' %}
+{% extends 'flatpages/default.html' %}
 {% block title %}
 Удаление сотрудника
 {% endblock title %}
@@ -46,7 +46,7 @@
     
     <form method="POST">
              {% csrf_token %}
-            <input type="submit" class="mx-auto-delete" value="Подтвердить удаление">
+            <input type="submit" class="btn" value="Подтвердить удаление">
             <br>
     </form>
     

@@ -1,4 +1,4 @@
-{% extends 'flatpages/default_1.html' %}
+{% extends 'flatpages/default.html' %}
 {% block title %}
 Выплаты
 {% endblock title %}
@@ -37,12 +37,9 @@
             </tr>
         </tbody>
     </table>
-  <P></P>
-    <div class="mx-auto">
-        <a href="{% url 'char_edit' accruals_and_taxes.id %}" class="btn-outline" role="button" >Редактировать</a>
-        <p></p>
-        <a href="{% url 'char_delete' accruals_and_taxes.id %}" class="btn-outline" role="button" >Удалить</a>
-        <p></p>
+    <div class="btn-wrapper">
+        <a href="{% url 'char_edit' accruals_and_taxes.id %}" class="btn" role="button" >Редактировать</a>
+        <a href="{% url 'char_delete' accruals_and_taxes.id %}" class="btn" role="button" >Удалить</a>
     </div>    
      
 {% endblock content %}

@@ -1,4 +1,4 @@
-{% extends 'flatpages/default_1.html' %}
+{% extends 'flatpages/default.html' %}
 {% block title %}
 Выплаты
 {% endblock title %}
@@ -15,8 +15,8 @@
 <form class="search-doc" method="GET">
  {{ filter.form }}
 <p></p>
-<div class="d-grid gap-3 col-3 mx-auto">
-    <input type="submit" class="btn-sm" value="Найти">
+<div class="d-grid gap-3 col-3 btn-wrapper">
+    <input type="submit" class="btn" value="Найти">
 </div>   
 </form>
     <br>
@@ -92,7 +92,7 @@
      <span style ="color: grey;">&nbsp;&nbsp;(Показаны документы с {{ page_obj.start_index }} по {{ page_obj.end_index }})</span>
    {% endif %}
    </div>
-    <div class="nav-link_1">
-        <a class="nav-link_1" href="/char_create">Добавить выплату</a>
+    <div class="btn-wrapper">
+        <a class="btn" href="/char_create">Добавить выплату</a>
     </div >
 {% endblock content %}

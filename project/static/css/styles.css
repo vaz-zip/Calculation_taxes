@@ -52,12 +52,13 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 98vh;
+    min-height: 98.3vh;
     padding: 0px 5px 0px;
 }
 
 footer {
     margin-top: auto;
+    margin-bottom: 5px;
 }
 
 .headspan {
@@ -91,10 +92,7 @@ li {
     padding-right: 1em;
 }  
 
-a.nav-link, a.nav-link_1, 
-.btn-edit, .mx-auto-delete, 
-.btn-outline, .btn-secondary, 
-.btn-sm {
+.btn {
     text-decoration: none;
     color: #EBE6D6;
     background-color:  #163E6C;  /*linear-gradient(#8860D0, #5680E9); */
@@ -102,15 +100,14 @@ a.nav-link, a.nav-link_1,
     padding: 3px 20px 6px 20px;
 }
 
-a.nav-link:hover, a.nav-link_1:hover, 
-.btn-edit:hover, .mx-auto-delete:hover, 
-.btn-outline:hover, .btn-secondary:hover, 
-.btn-sm:hover {
+/* #5680E9 - #84CEEB - #5AB9EA - #C1C8E4 - #8860D0 */
+
+.btn:hover {
     background-color:  #5680E9;
     text-decoration: underline;
 }
 
-div.nav-link_1 {
+div.btn-wrapper {
     text-align: center;
     padding-bottom: 1em;
 }
@@ -134,6 +131,7 @@ div.author_1 {
 	margin-right: auto;
     padding-top: 2px; 
 	max-width: 95em;*/
+    margin-bottom: 20px;
 	height: fit-content;
     outline: 2px solid #163E6C;
     border-radius: 5px;
@@ -184,14 +182,7 @@ table.table-create {
     margin-right: auto;
 }
 
-.btn-add {
-    margin: 0 auto;
-    display: block;
-    padding: 3px 20px 6px 20px;
-    color: #EBE6D6;
-    background-color: #D20A11;
-    border-radius: 5px;
-} 
+
 
 .table-deitail, .table-delete {
     margin-top: 1em;
@@ -242,9 +233,6 @@ p.text-break {
     transform: scale(1.6); /* Увеличиваем масштаб */
 }
     
-.mx-auto {
-    text-align: center;
-}
 
 .edit-doc {
     text-align: center;

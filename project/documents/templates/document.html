@@ -1,4 +1,4 @@
-{% extends 'flatpages/default_3.html' %}
+{% extends 'flatpages/default.html' %}
 {% block title %}
 Документы
 {% endblock title %}
@@ -45,17 +45,9 @@
 
     {% endfor %}
 </div>   
-      <br>
-      <!-- <br> -->
-    
-    <div class="mx-auto">
-        <a href="{% url '_edit' document.id %}" class="btn-outline" role="button" >Редактировать документ</a>
-        <p></p>
-       
-        <a href="{% url 'doc_delete' document.id %}" class="btn-secondary" role="button">Удалить документ
-            <br>
-        </a>
-        <br>
+    <div class="btn-wrapper">
+        <a href="{% url '_edit' document.id %}" class="btn" role="button" >Редактировать документ</a>
+        <a href="{% url 'doc_delete' document.id %}" class="btn" role="button">Удалить документ</a>
     </div>  
 
 {% endblock content %}

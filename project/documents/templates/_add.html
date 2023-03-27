@@ -1,4 +1,4 @@
-{% extends 'flatpages/default_3.html' %}
+{% extends 'flatpages/default.html' %}
 {% block title %} Добавление документа {% endblock title %}
 <link href="{% url 'static/css/styles1.css' %}" rel="stylesheet" />
 {% block content %}
@@ -8,7 +8,7 @@
     {% csrf_token %}
     <table class="table-create">{{ form }}</table>
     <p></p>
-    <input class="btn-add" type="submit"  value="Записать">
+    <input class="btn" type="submit"  value="Записать">
     <br>
 </form>
 {% endblock content %}
