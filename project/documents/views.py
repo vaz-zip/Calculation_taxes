@@ -9,7 +9,7 @@ from .filters import DocFilter
 from .forms import DocumentCreateForm, DocumentForm
 
 
-class DocumentList(LoginRequiredMixin, ListView):
+class DocumentList(ListView):
     model = Document
     template_name = 'documents.html'
     context_object_name = 'documents'
@@ -29,7 +29,7 @@ class DocumentList(LoginRequiredMixin, ListView):
         return context
 
 
-class DocumentDetail(LoginRequiredMixin, DetailView):
+class DocumentDetail(DetailView):
     model = Document
     template_name = 'document.html'
     context_object_name = 'document'
@@ -72,7 +72,7 @@ class DocumentCreateView(LoginRequiredMixin, CreateView):
             return self.form_invalid(form)
 
 
-class DocumentUpdateView(LoginRequiredMixin, UpdateView):
+class DocumentUpdateView(UpdateView):
     template_name = '_edit.html'
     form_class = DocumentForm
 
@@ -81,7 +81,7 @@ class DocumentUpdateView(LoginRequiredMixin, UpdateView):
         return Document.objects.get(pk=id)
     
 
-class ImageDeleteView(LoginRequiredMixin, RedirectView):
+class ImageDeleteView(RedirectView):
     def post(self, request, image_id: int, *args, **kwargs):
         document_id = Image.objects.filter(id=image_id).values('document_id').first()['document_id']
         Image.objects.filter(id=image_id).delete()
