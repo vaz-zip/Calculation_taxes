@@ -9,7 +9,7 @@ from .filters import DocFilter
 from .forms import DocumentCreateForm, DocumentForm
 
 
-class DocumentList(ListView):
+class DocumentList(LoginRequiredMixin, ListView):
     model = Document
     template_name = 'documents.html'
     context_object_name = 'documents'
@@ -18,7 +18,7 @@ class DocumentList(ListView):
     paginate_by = 4
 
     def get_queryset(self):
-        self.filter = self.filter_class(self.request.GET, super().get_queryset()) #.filter(author_id=self.request.user.id))
+        self.filter = self.filter_class(self.request.GET, super().get_queryset().filter(author_id=self.request.user.id))
         return self.filter.qs.all()                                          
 
     def get_context_data(self, **kwargs):
@@ -29,7 +29,7 @@ class DocumentList(ListView):
         return context
 
 
-class DocumentDetail(DetailView):
+class DocumentDetail(LoginRequiredMixin, DetailView):
     model = Document
     template_name = 'document.html'
     context_object_name = 'document'
@@ -45,9 +45,9 @@ class DocumentDeleteView(LoginRequiredMixin, DeleteView):
     context_object_name = 'document'
     success_url = '/documents/document'
 
-def doc_filter(request):
-    f = DocFilter(request.GET, queryset=Document.objects.all())
-    return render(request, '_filtr.html', {'filter': f})
+# def doc_filter(request):
+#     f = DocFilter(request.GET, queryset=Document.objects.all())
+#     return render(request, '_filtr.html', {'filter': f})
 
 
 class DocumentCreateView(LoginRequiredMixin, CreateView):
@@ -63,7 +63,7 @@ class DocumentCreateView(LoginRequiredMixin, CreateView):
         files = request.FILES.getlist('images')
         if form.is_valid():
             form.cleaned_data.pop('images')
-            document = Document.objects.create(**(form.cleaned_data)) #| {'author': request.user}))
+            document = Document.objects.create(**(form.cleaned_data) | {'author': request.user})
             Image.objects.bulk_create(
                 [Image(file=file, document=document) for file in files]
             )
@@ -72,7 +72,7 @@ class DocumentCreateView(LoginRequiredMixin, CreateView):
             return self.form_invalid(form)
 
 
-class DocumentUpdateView(UpdateView):
+class DocumentUpdateView(LoginRequiredMixin, UpdateView):
     template_name = '_edit.html'
     form_class = DocumentForm
 
@@ -81,7 +81,7 @@ class DocumentUpdateView(UpdateView):
         return Document.objects.get(pk=id)
     
 
-class ImageDeleteView(RedirectView):
+class ImageDeleteView(LoginRequiredMixin, RedirectView):
     def post(self, request, image_id: int, *args, **kwargs):
         document_id = Image.objects.filter(id=image_id).values('document_id').first()['document_id']
         Image.objects.filter(id=image_id).delete()

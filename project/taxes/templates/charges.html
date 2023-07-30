@@ -50,9 +50,11 @@
                <th scope="row">{{ accruals_and_taxes.single_tax }}</th>
                <th scope="row">{{ accruals_and_taxes.injury_insurance }}</th>
                <th scope="row">{{ accruals_and_taxes.description|truncatechars:12 }}</th>
+               <th scope="row">{{ accruals_and_taxes.worker.author }}</th>
    
             </tr>
            {% endfor %}
+           {{ request }}
         </tbody>
     </table>
        

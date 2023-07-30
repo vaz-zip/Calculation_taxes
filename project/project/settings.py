@@ -43,16 +43,30 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'taxes',
     'documents',
+    'sign',
+    'protect',
     
-    # 'allauth',
-    # 'allauth.account',
-    # 'bootstrap5',
-    # 'accounts',
+    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    'accounts',
 ]
 
 SITE_ID = 1
 # APP_DIRS = True
-
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'SCOPE': [
+#             'profile',
+#             'email',
+#         ],
+#         'AUTH_PARAMS': {
+#             'access_type': 'online',
+#         }
+#     }
+# }
 # BOOTSTRAP5 = {
 #     'horizontal_label_class': 'col-md-5',
 #     'horizontal_field_class': 'col-md-7',
@@ -74,7 +88,8 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'taxes/templates', BASE_DIR/'accounts/templates', BASE_DIR/'documents/templates'],
+        'DIRS': [BASE_DIR/'taxes/templates', BASE_DIR/'accounts/templates', BASE_DIR/'documents/templates', BASE_DIR/'sign/templates',
+                 BASE_DIR/'protect/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,13 +102,17 @@ TEMPLATES = [
     },
 ]
 
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
-# ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
+LOGIN_URL = '/accounts/login/'
+# LOGIN_URL = 'sign/login/'
+LOGIN_REDIRECT_URL = '/'
 
-# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+# # ACCOUNT_UNIQUE_EMAIL = True
 # ACCOUNT_UNIQUE_USERNAME = True
 # ACCOUNT_AUTHENTICATION_METHOD = 'username'
 # is_open_for_signup = 'False'
@@ -148,9 +167,9 @@ db_index = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# LOGIN_URL = 'index'
-# LOGOUT_REDIRECT_URL = 'index'
-# LOGIN_REDIRECT_URL = 'info'
+#LOGIN_URL = '/accounts/login'
+# LOGOUT_REDIRECT_URL = ''
+# LOGIN_REDIRECT_URL = ''
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
@@ -159,6 +178,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # MEDIA_ROOT = f'{BASE_DIR}/media'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none' #mandatory'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

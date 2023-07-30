@@ -6,8 +6,8 @@
 <form class="create-doc" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table class="table-create">{{ form }}</table>
-    <p></p>
+    <div class="btn-wrapper">
     <input class="btn" type="submit"  value="Записать">
-    <br>
+    </div>
 </form>
 {% endblock content %}

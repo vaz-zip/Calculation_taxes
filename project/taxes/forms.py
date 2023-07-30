@@ -21,6 +21,10 @@ class StaffCreateForm(forms.ModelForm):
 
 class ChargesCreateForm(forms.ModelForm):
 
+    # def __init__(self, *args, **kwargs):
+    #      super(ChargesCreateForm, self).__init__(*args, **kwargs)
+    #      self.fields['worker'].queryset = Staff.objects.filter(author_id=self.user.id)
+
     class Meta:
         model = Accruals_and_taxes
         widgets = {
@@ -28,3 +32,13 @@ class ChargesCreateForm(forms.ModelForm):
         fields =[
             'worker', 'payment_date', 'reporting_year', 'reporting_quarter', 'reporting_month',
                 'accrued', 'alimony', 'description']
+        
+
+# class DocumentForm(forms.ModelForm):
+#     def __init__(self, project, *args, **kwargs):
+#         super(DocumentForm, self).__init__(*args, **kwargs)
+#         self.fields['organization'].queryset = Company.objects.filter(projectcompany__project=project)
+
+#     class Meta:
+#         model = Documents
+#         fields = ('__all__')        

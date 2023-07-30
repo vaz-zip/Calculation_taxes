@@ -4,7 +4,7 @@ from .models import Staff, Accruals_and_taxes
 
 class StaffAdmin(admin.ModelAdmin):
     fields = ['surname', 'name', 'patronimic', 'post', 'ITN', 'dependents']
-    list_display = ['surname', 'name', 'patronimic',
+    list_display = ['author_id', 'id', 'surname', 'name', 'patronimic',
                     'post', 'ITN', 'dependents', 'description']
 
     def get_queryset(self, obj):
@@ -15,7 +15,7 @@ class Accruals_and_taxesAdmin(admin.ModelAdmin):
     fields = ['worker', 'accrued', 'reporting_year', 'reporting_quarter',
               'reporting_month', 'payment_date', 'description', 'alimony']
     list_display = ['worker', 'payment_date', 'reporting_year', 'reporting_quarter', 'reporting_month', 'accrued', 'social_deductions',
-                    'alimony', 'alimony_tax', 'income_tax', 'salary', 'single_tax', 'injury_insurance', 'description']
+                    'alimony', 'alimony_tax', 'income_tax', 'salary', 'single_tax', 'injury_insurance', 'description', 'worker_id']
 
     def get_queryset(self, obj):
         return Accruals_and_taxes.objects.all().order_by('payment_date', '-worker')

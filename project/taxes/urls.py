@@ -5,7 +5,7 @@ from .views import StaffList, StaffDetailView, StaffCreateView, StaffUpdateView,
 from .models import Staff, Accruals_and_taxes
 
 urlpatterns = [
-    path('', StaffList.as_view(queryset=Staff.objects.all().order_by('surname'), template_name='staff.html'), name='staff'),
+    path('staff', StaffList.as_view(queryset=Staff.objects.all().order_by('surname'), template_name='staff.html'), name='staff'),
     path('<int:pk>', StaffDetailView.as_view(), name='worker'),
     path('create', StaffCreateView.as_view(), name='staff_add'),
     path('staff_edit/<int:pk>', StaffUpdateView.as_view(), name='staff_edit'),
