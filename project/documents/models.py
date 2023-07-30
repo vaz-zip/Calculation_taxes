@@ -11,6 +11,8 @@ class Document(models.Model):
     textDocument = models.TextField(blank=True, verbose_name='Содержание')
     number = models.IntegerField(default=0, verbose_name='Номер')
     dateCreate = models.DateTimeField(null=True, verbose_name='Внесён в базу')
+    class Meta:
+        ordering = ['-dateCreate']
 
     def __str__(self):
         return f'{self.dateCreate.strftime("%d. %m. %Y")} {self.title} {self.category} {self.number}'
