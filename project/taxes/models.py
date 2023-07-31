@@ -26,35 +26,32 @@ class Staff(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Компания')
     surname = models.CharField(max_length=24, verbose_name='Фамилия')
     name = models.CharField(max_length=24, verbose_name='Имя')
-    patronimic = models.CharField(
-        max_length=24, blank=True, verbose_name='Отчество')
+    patronimic = models.CharField(max_length=24, blank=True, verbose_name='Отчество')
     ITN = models.IntegerField(unique=True, verbose_name='ИНН')
     post = models.CharField(max_length=24, verbose_name='Должность')
     dependents = models.IntegerField(default=0, verbose_name='Дети')
-    description = models.TextField(
-        max_length=50, blank=True, verbose_name='Описание')
+    description = models.TextField(max_length=50, blank=True, verbose_name='Описание')
+    class Meta:
+        ordering = ['surname']
+        verbose_name = 'Сотрудники'
+        verbose_name_plural = 'Персонал'
 
     def __str__(self):
         return f'{self.surname} {self.name}'
-
-    class Meta:
-        verbose_name = 'Сотрудники'
-        verbose_name_plural = 'Персонал'
+    
 
     def get_absolute_url(self):
         return f'/{self.id}'
 
 
 class Accruals_and_taxes(models.Model):
+    # class Reporting(models.TextChoices):
+
     # author = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Автор')
-    worker = models.ForeignKey(
-        Staff, on_delete=models.CASCADE, verbose_name='Работник')
-    reporting_year = models.CharField(
-        max_length=4, choices=POSITIONS, default="", verbose_name='Год')
-    reporting_quarter = models.CharField(
-        max_length=6, choices=POSITIONS_1, default=three_month, verbose_name='Квартал')
-    reporting_month = models.CharField(
-        max_length=4, choices=POSITIONS_2, default=january, verbose_name='Месяц')
+    worker = models.ForeignKey(Staff, on_delete=models.CASCADE, verbose_name='Работник')
+    reporting_year = models.CharField(max_length=4, choices=POSITIONS, default="", verbose_name='Год')
+    reporting_quarter = models.CharField(max_length=6, choices=POSITIONS_1, default=three_month, verbose_name='Квартал')
+    reporting_month = models.CharField(max_length=4, choices=POSITIONS_2, default=january, verbose_name='Месяц')
     payment_date = models.DateField(verbose_name='Дата выплаты')
     accrued = models.FloatField(verbose_name='Начислено')
     alimony = models.FloatField(default=0, verbose_name='Коэфф.Ал')

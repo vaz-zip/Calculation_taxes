@@ -4,7 +4,7 @@ from documents.resources import POSITIONS, reference
 from django.conf import settings
 
 class Document(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE, verbose_name='Автор')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE, verbose_name='Автор', related_name='documents_documents')
     title = models.CharField(max_length=32, default="----", verbose_name='Название')
     slug = models.SlugField(max_length=32)
     category = models.CharField(max_length=16, choices=POSITIONS, default=reference, verbose_name='Тип документа')
@@ -13,6 +13,13 @@ class Document(models.Model):
     dateCreate = models.DateTimeField(null=True, verbose_name='Внесён в базу')
     class Meta:
         ordering = ['-dateCreate']
+        indexes = [
+            models.Index(fields=['-dateCreate']),
+        ]
+        verbose_name = 'Документы'
+        verbose_name_plural = 'Документы'
+      
+
 
     def __str__(self):
         return f'{self.dateCreate.strftime("%d. %m. %Y")} {self.title} {self.category} {self.number}'
@@ -20,10 +27,7 @@ class Document(models.Model):
     def get_absolute_url(self):
         return f'/documents/{self.id}'
     
-    class Meta:
-        verbose_name = 'Документы'
-        verbose_name_plural = 'Документы'
-      
+    
 
 
 class Image(models.Model):

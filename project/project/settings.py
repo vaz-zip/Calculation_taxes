@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'django.contrib.sites',
     'taxes',
+    # 'documents.apps.DocumentsConfig'
     'documents',
     'sign',
     'protect',
