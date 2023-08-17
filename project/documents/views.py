@@ -9,6 +9,7 @@ from .filters import DocFilter
 from .forms import DocumentCreateForm, DocumentForm
 
 
+
 class DocumentList(LoginRequiredMixin, ListView):
     model = Document
     template_name = 'documents.html'

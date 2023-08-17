@@ -29,9 +29,9 @@
                 {% for staff in staff %}  <!--in documents filter.qs%} -->
                     <tr>
                         <th scope="row"><a href="{% url 'worker' staff.id %}" class="link-dark">
-                                {{ staff.surname|truncatechars:7 }}</a></th>  
-                        <th scope="row">{{ staff.name|truncatechars:7 }}</th>
-                        <th scope="row">{{ staff.patronimic|truncatechars:7 }}</th>
+                                {{ staff.surname|truncatechars:12 }}</a></th>  
+                        <th scope="row">{{ staff.name|truncatechars:7}}</th>
+                        <th scope="row">{{ staff.patronimic|truncatechars:10 }}</th>
                         <th scope="row">{{ staff.ITN }}</th>
                         <th scope="row">{{ staff.post|truncatechars:7 }}</th>
                         <th scope="row">{{ staff.dependents }}</th>

@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 from documents.resources import POSITIONS, reference
 from django.conf import settings
 
+
 class Document(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE, verbose_name='Автор', related_name='documents_documents')
     title = models.CharField(max_length=32, default="----", verbose_name='Название')
-    slug = models.SlugField(max_length=32)
+    slug = models.SlugField(max_length=32, unique_for_date='dateCreate')
     category = models.CharField(max_length=16, choices=POSITIONS, default=reference, verbose_name='Тип документа')
     textDocument = models.TextField(blank=True, verbose_name='Содержание')
     number = models.IntegerField(default=0, verbose_name='Номер')

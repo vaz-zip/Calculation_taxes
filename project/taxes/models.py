@@ -95,10 +95,19 @@ class Accruals_and_taxes(models.Model):
     def injury_insurance(self):
         accrued = self.accrued
         return accrued * 0.004
+    
 
+    def t_sum(self):
+        accrued = self.accrued
+        return sum([accruals_and_taxes.accrued for accruals_and_taxes in self.taxes.all()])
+    
     def __str__(self):
         return f'{self.accrued}'
 
+                #Accruals_and_taxes.objects.aggregate(Sum('accrued'))
+        # summ = Accruals_and_taxes.objects.all()
+#  {% for accruals_and_taxes in taxes %}
+#                                                    {{ accruals_and_taxes.accrued }       
     # def single_tax_sum(self):
     #     accrued = self.accrued
     #     accruals_and_taxes = Accruals_and_taxes()
@@ -125,3 +134,10 @@ class Accruals_and_taxes(models.Model):
 
     def get_absolute_url(self):
         return f'/charges/{self.id}'
+
+
+# def t_sum(self):
+#     # accrued = self.accrued
+#     sum = Accruals_and_taxes.objects.aggregate(Sum('accrued'))
+#         # summ = Accruals_and_taxes.objects.all()
+#     return sum

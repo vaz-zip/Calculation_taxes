@@ -1,7 +1,7 @@
-{% extends "main.html" %}
+{% extends 'flatpages/default.html' %}
 
 {% block content %}
-<h2 class="enter-sistem"> Войти в систему </h2>
+<h2 class="enter-sistem"> Войти в сис </h2>
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table class="table_login">

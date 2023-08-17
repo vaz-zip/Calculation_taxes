@@ -28,4 +28,4 @@ class DocumentForm(forms.ModelForm):
             'dateCreate': forms.DateInput(attrs={'type': 'date'}),
         }
 
-        fields = ['title', 'category', 'textDocument', 'number', 'dateCreate']
+        fields = ['title', 'slug', 'category', 'textDocument', 'number', 'dateCreate']

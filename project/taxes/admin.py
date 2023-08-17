@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Staff, Accruals_and_taxes
 
-
+@admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
     fields = ['surname', 'name', 'patronimic', 'post', 'ITN', 'dependents']
     list_display = ['author_id', 'id', 'surname', 'name', 'patronimic',
@@ -10,7 +10,7 @@ class StaffAdmin(admin.ModelAdmin):
     def get_queryset(self, obj):
         return Staff.objects.all().order_by('surname')
 
-
+@admin.register(Accruals_and_taxes)
 class Accruals_and_taxesAdmin(admin.ModelAdmin):
     fields = ['worker', 'accrued', 'reporting_year', 'reporting_quarter',
               'reporting_month', 'payment_date', 'description', 'alimony']
@@ -21,5 +21,5 @@ class Accruals_and_taxesAdmin(admin.ModelAdmin):
         return Accruals_and_taxes.objects.all().order_by('payment_date', '-worker')
 
 
-admin.site.register(Staff, StaffAdmin)
-admin.site.register(Accruals_and_taxes, Accruals_and_taxesAdmin)
+# admin.site.register(Staff, StaffAdmin)
+# admin.site.register(Accruals_and_taxes, Accruals_and_taxesAdmin)

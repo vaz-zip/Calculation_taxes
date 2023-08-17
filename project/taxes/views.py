@@ -20,15 +20,12 @@ class StaffList(LoginRequiredMixin, ListView):
     paginate_by = 3
 
     def get_queryset(self):
-        self.filter = self.filter_class(
-            self.request.GET, super().get_queryset().filter(author_id=self.request.user.id))
+        self.filter = self.filter_class(self.request.GET, super().get_queryset().filter(author_id=self.request.user.id))
         return self.filter.qs.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-    
-        context['filter'] = StaffFilter(
-            self.request.GET, queryset=self.get_queryset())
+        context['filter'] = StaffFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
 
@@ -94,15 +91,12 @@ class ChargesList(LoginRequiredMixin, ListView):
     #     # context['time_now'] = datetime.now()
        #  context['list_in_page'] = self.paginate_by
         context['staff'] = Staff.objects.all()
-        context['filter'] = ChargesFilter(
-            self.request.GET, queryset=self.get_queryset())
+        context['filter'] = ChargesFilter(self.request.GET, queryset=self.get_queryset())
         return context
     
     def get_queryset(self):
-        
         # f = Staff.objects.all(user = self.request.user)
-        self.filter = self.filter_class(
-            self.request.GET, super().get_queryset()) #.filter(f))
+        self.filter = self.filter_class(self.request.GET, super().get_queryset()) #.filter(f))
         return self.filter.qs.all()
     
 #  qs = qs_filter = Car.objects.all()
@@ -115,44 +109,24 @@ class FinreportList(ListView):
     model = Accruals_and_taxes
     template_name = 'report.html'
     filter_class = ReportFilter
-    # summarno = Accruals_and_taxes.objects.all()
-    # summ = Accruals_and_taxes.objects.annotate(single_tax_sum=Sum('accrued'))
     context_object_name = 'taxes'
-    # context_object_name = 'queryset'
-
+ 
     def get_queryset(self):
         # .filter(author_id=self.request.user.id))
-        self.filter = self.filter_class(
-            self.request.GET, super().get_queryset())
+        self.filter = self.filter_class(self.request.GET, super().get_queryset())
         return self.filter.qs.all()
 
-    def summ(self, request):
-        self.filter = self.filter.qs.all()
-        summ = Accruals_and_taxes.objects.filter(self, request).aggregate(Sum('accrued'))
-
-        return summ
-
+    
     def get_context_data(self, **kwargs):
+        self.filter = self.filter_class
         context = super().get_context_data(**kwargs)
         # queryset = Accruals_and_taxes.objects.filter(title__icontains='war')[:5] # Получение 5 книг,
         # aggregate(Sum('accrued'))
-        context['sum'] = Accruals_and_taxes.objects.aggregate(Sum('accrued'))
-        context['filter'] = ReportFilter(
-            self.request.GET, queryset=self.get_queryset())
-       #  context['list_in_page'] = self.paginate_by
+        context['filter'] = ReportFilter(self.request.GET, queryset=self.get_queryset())
+        context['sum'] = Accruals_and_taxes.objects.values('accrued')#aggregate(Sum("accrued")).get('accrued__sum')
+        # self.filter = self.filter_class(self.request.GET, super().get_queryset().filter(author_id=self.request.user.id))
         return context
 
-    # def t_sum():
-    #     summ = Accruals_and_taxes.objects.all()
-    #     return summ
-
-        # for accruals_and_taxes in taxes
-
-        # sum = Accruals_and_taxes.objects.aggregate(Sum('accrued'))
-        # context = super().get_context_data(**kwargs)
-        # context['filter'] = ReportFilter(self.request.GET, queryset=self.get_queryset())
-        # # sum = Accruals_and_taxes.objects.aggregate(Sum('accrued'))
-        # return context
 
 
 class СhargesDetailView(DetailView):
@@ -168,6 +142,7 @@ class СhargesDetailView(DetailView):
 class СhargesCreateView(LoginRequiredMixin, CreateView):
     template_name = 'charges_add.html'
     form_class = ChargesCreateForm
+
 
     def get_success_url(self) -> str:
         return '/charge'
