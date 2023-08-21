@@ -97,9 +97,9 @@ class Accruals_and_taxes(models.Model):
         return accrued * 0.004
     
 
-    def t_sum(self):
-        accrued = self.accrued
-        return sum([accruals_and_taxes.accrued for accruals_and_taxes in self.taxes.all()])
+    # def t_sum(self):
+    #     accrued = self.accrued
+    #     return sum([accruals_and_taxes.accrued for accruals_and_taxes in self.taxes.all()])
     
     def __str__(self):
         return f'{self.accrued}'
