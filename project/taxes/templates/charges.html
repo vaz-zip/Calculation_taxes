@@ -44,7 +44,7 @@
                <th scope="row">{{ accruals_and_taxes.single_tax }}</th>
                <th scope="row">{{ accruals_and_taxes.injury_insurance }}</th>
                <th scope="row">{{ accruals_and_taxes.description|truncatechars:12 }}</th>
-               <th scope="row">{{ accruals_and_taxes.worker.author }}</th>
+               <!-- <th scope="row">{{ accruals_and_taxes.worker.author }}</th> -->
    
             </tr>
            {% endfor %}
@@ -57,17 +57,17 @@
        <h2 class="doc-none">У Вас пока нет выплат!</h2>
 
    {% endif %}
-
-   <div class="paginat">
+   {% include "pagination.html" with page=page_obj %}
+   <!-- <div class="paginat">
    {% if is_paginated %}
    <span>Страницы: </span>
-       <!-- Если доступна предыдущая страница, то даём ссылку на неё и самую первую страницу -->
+        Если доступна предыдущая страница, то даём ссылку на неё и самую первую страницу 
        {% if page_obj.has_previous %}
            <a href="?page=1">Первая</a><span>&nbsp;</span>
            <a href="?page={{ page_obj.previous_page_number }}"><</a>
        {% endif %}
    
-       <!-- Показываем только текущую страницу и ближайшие к ней, чтобы список не тянулся и не захламлял страницу -->
+        Показываем только текущую страницу и ближайшие к ней, чтобы список не тянулся и не захламлял страницу 
        {% for num in page_obj.paginator.page_range %}
            {% if page_obj.number == num %}
                <a><b>{{ page_obj.number }}</b></a><span>&nbsp;</span>
@@ -76,14 +76,14 @@
            {% endif %}
        {% endfor %}
    
-       <!-- Если есть следующая страница, то даём ссылку на неё и на самую последнюю страницу -->
+       Если есть следующая страница, то даём ссылку на неё и на самую последнюю страницу
        {% if page_obj.has_next %}
            <a href="?page={{ page_obj.next_page_number }}">></a><span>&nbsp;</span>
            <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
        {% endif %}
      <span style ="color: grey;">&nbsp;&nbsp;(Показаны документы с {{ page_obj.start_index }} по {{ page_obj.end_index }})</span>
    {% endif %}
-   </div>
+   </div> -->
     <div class="btn-wrapper">
         <a class="btn" href="/char_create">Добавить выплату</a>
     </div >

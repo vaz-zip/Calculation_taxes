@@ -112,11 +112,6 @@ LOGIN_URL = '/accounts/login/'
 # LOGIN_URL = 'sign/login/'
 LOGIN_REDIRECT_URL = '/'
 
-# ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
-# # ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_UNIQUE_USERNAME = True
-# ACCOUNT_AUTHENTICATION_METHOD = 'username'
-# is_open_for_signup = 'False'
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
@@ -195,6 +190,11 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none' #mandatory'
+
+# AUTHENTICATION_BACKENDS = [
+# 'django.contrib.auth.backends.ModelBackend',
+# 'account.authentication.EmailAuthBackend',
+# ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

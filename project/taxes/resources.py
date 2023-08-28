@@ -20,6 +20,7 @@ november = 'НОЯБ'
 december = 'ДЕК'
 
 
+
 POSITIONS = [
     (y_2023, '2023'),
     (y_2024, '2024'),
@@ -48,3 +49,15 @@ POSITIONS_1 = [
     (nine_month, '9 мес.'),
     (year, 'Год'),
 ]
+ 
+# def positions():
+#     if POSITIONS_2 == (january or february or march): POSITIONS_1 == three_month
+#     elif: POSITIONS_2 == (april or may or june): POSITIONS_1 == six_month
+# elif:
+#         (POSITIONS_2 == (july or august or september): POSITIONS_1 == nine_month) or
+#         (POSITIONS_2 == (october or november or december): POSITIONS_1 == year)   
+#     else:
+#         print("ERROR")   
+
+    
+     

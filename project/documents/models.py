@@ -14,30 +14,20 @@ class Document(models.Model):
     dateCreate = models.DateTimeField(null=True, verbose_name='Внесён в базу')
     class Meta:
         ordering = ['-dateCreate']
-        indexes = [
-            models.Index(fields=['-dateCreate']),
-        ]
+        indexes = [models.Index(fields=['-dateCreate']), ]
         verbose_name = 'Документы'
         verbose_name_plural = 'Документы'
-      
-
-
     def __str__(self):
         return f'{self.dateCreate.strftime("%d. %m. %Y")} {self.title} {self.category} {self.number}'
-
     def get_absolute_url(self):
         return f'/documents/{self.id}'
-    
-    
 
 
 class Image(models.Model):
     document = models.ForeignKey(Document, on_delete=models.CASCADE, related_name="images", verbose_name='Файл')
     file = models.ImageField(upload_to='media/images/', null=True, verbose_name='Изображение')
-
     def __str__(self):
         return f'Изображение {self.document_id}'
-    
     class Meta:
         verbose_name = 'Изображения'
         verbose_name_plural = 'Изображения'

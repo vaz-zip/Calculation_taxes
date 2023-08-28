@@ -43,7 +43,7 @@
                         <th scope="row">{{ accruals_and_taxes.single_tax }}</th>
                         <th scope="row">{{ accruals_and_taxes.injury_insurance }}</th>
                         <th scope="row">{{ accruals_and_taxes.description|truncatechars:12 }}</th>
-                        <th scope="row"></th>
+                        <!-- <th scope="row"></th> -->
                     </tr>
                     
                      {% endfor %}
@@ -51,7 +51,7 @@
                     
                     <tr>
                          <th scope="col"></th>
-                         <th scope="col">{{ sum }}</th>
+                         <th scope="col"></th> 
                          <th>{% for accruals_and_taxes in taxes %}
                                                    {{ accruals_and_taxes.accrued }} {% endfor %}</th>
                          <th scope="col">{{ accruals_and_taxes.t_sum }}</th> 

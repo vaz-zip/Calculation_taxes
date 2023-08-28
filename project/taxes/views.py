@@ -99,13 +99,9 @@ class ChargesList(LoginRequiredMixin, ListView):
         self.filter = self.filter_class(self.request.GET, super().get_queryset()) #.filter(f))
         return self.filter.qs.all()
     
-#  qs = qs_filter = Car.objects.all()
-#         if context['te'] != "---":
-#             filter = Technique_model.objects.get(name=context['te']).id
-#             qs = qs.filter(technique_model=filter)
 
 
-class FinreportList(ListView):
+class FinreportList(LoginRequiredMixin, ListView):
     model = Accruals_and_taxes
     template_name = 'report.html'
     filter_class = ReportFilter

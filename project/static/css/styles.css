@@ -85,6 +85,21 @@ header {
     border-radius: 5px;
  }
 
+p.login {
+    text-align: center;
+}
+
+div.login_s {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .field {clear:both; text-align:right;}
+}
+
+div.login_s.input.label {
+    clear:both; 
+    text-align:right;
+}
 
 li {
     display: inline-block;
@@ -100,8 +115,6 @@ li {
     padding: 3px 20px 6px 20px;
 }
 
-/* #5680E9 - #84CEEB - #5AB9EA - #C1C8E4 - #8860D0 */
-
 .btn:hover {
     background-color:  #5680E9;
     text-decoration: underline;
@@ -111,7 +124,6 @@ div.btn-wrapper {
     text-align: center;
     padding-bottom: 1em;
 }
-
 
 a.navbar-brand {
     padding-right: 4em;
@@ -151,7 +163,6 @@ h4.title_2 {
     text-align: center;   
 }
 
-
 .table_blur {
     table-layout: fixed;
     margin-left: auto;
@@ -182,16 +193,12 @@ table.table-create {
     margin-right: auto;
 }
 
-
-
 .table-deitail, .table-delete {
     margin-top: 1em;
     table-layout: fixed;
     margin-left: auto;
     margin-right: auto;
     width: 98%;
-    /* border-collapse: collapse;
-    border: 1px solid #163E6C; */
 }
 
 hr {
@@ -234,7 +241,6 @@ p.text-break {
     transform: scale(1.6); /* Увеличиваем масштаб */
 }
     
-
 .edit-doc {
     text-align: center;
 }
@@ -251,10 +257,6 @@ p.text-break {
 .delete-doc {
     text-align: center;
 }
-
-/* .img-delete, .scale {
-    margin-left: 1%;
-} */
 
 h2.doc-none {
     position: relative;
@@ -356,6 +358,8 @@ a.reg-user {
 .reg-user-log {
     margin: 0 auto;
     display: block;
+    text-decoration: none;
+    color: #EBE6D6;
     background-color: #D20A11;
     border-radius: 5px;
     padding: 3px 20px 6px 20px;
@@ -384,9 +388,6 @@ a.reg-user {
     font-size: large;
 }
 
-/* img.scale {
-    z-index: -1;
-} */
 .delete_button {
     position: relative;
     top: -7.5em;
@@ -401,3 +402,35 @@ a.reg-user {
     /* cursor: pointer; */
     /* border-radius: 5px; */
 }
+
+form p {
+    /* width:100%; */
+    overflow:auto;
+}
+
+label[for=id_password], [for=id_login], [for=id_email], [for=id_username],
+[for=id_username],[for=id_password1], [for=id_password2] {
+    float:left;
+    clear:both;
+    /* color:#333; */
+    /* margin-bottom:4px; */
+}
+input[type=password], [type=email], [name=username]{
+    clear:both;
+    float:left;
+    /* margin:0 0 10px; */
+    background:#efefef;
+    border: 1px;;
+    padding:6px 10px;
+    font-size:14px;
+}
+
+
+/* input[type=submit], a.button {
+    font-weight:bold;
+    background:#12c064;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+} */

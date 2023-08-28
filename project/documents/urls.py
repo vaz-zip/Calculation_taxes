@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import DocumentList, DocumentDetail, DocumentDeleteView, DocumentCreateView, DocumentUpdateView, ImageDeleteView
-
 from .models import Document
+
 
 urlpatterns = [
     path('document', DocumentList.as_view(queryset=Document.objects.all().order_by('-dateCreate'), template_name='documents.html'), name='docs'),
