@@ -237,9 +237,9 @@ p.text-break {
     border: #163E6C;
     transition: 1s; /* Время эффекта */
 }
-.scale:hover {
+/* .scale:hover {
     transform: scale(1.6); /* Увеличиваем масштаб */
-}
+/* } */ 
     
 .edit-doc {
     text-align: center;

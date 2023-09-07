@@ -5,9 +5,7 @@
 <form class="edit-doc-doc" method="POST">
     {% csrf_token %}
     <table class="table-edit" >{{ form }}</table>
-    {% if object %}
-    {% include "photo.html" %}
-    {% endif %}
+
     <div class="btn-wrapper">
     <input class="btn" type="submit" value="Редактировать">
     </div>

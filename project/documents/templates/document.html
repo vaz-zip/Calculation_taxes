@@ -23,15 +23,20 @@
             <h3 class="fw-bold">Описание</h3>
             <p class="text-break">{{ document.textDocument }}</p>
 
-<div class="foto">    
+<div class="foto"> 
+    {% load thumbnail %}   
        {% for image in document.images.all %}
-       <img src="{{ image.file.url }}" class="scale" overflow="hidden"  width="300px" height="auto"></img> 
        
+       <img src="{{ image.file|thumbnail_url:'my_preview_1' }}" class="scale"></img> 
+
+       <!-- <a href="{{ image.file.url }}">
+        <img src="{% thumbnail image.file 200x0 %}" class="image-detail">
+        </a> -->
        <form action="{% url 'delete-image' image.id %}" method="POST">
 
            {% csrf_token %}
            <button type="submit" class="delete_button" value="main_button">
-            <img src="/static/delete.png" alt="Удалить" title="Фото будет удалено!" width="16" height="16">
+            <img src="/static/delete.png" alt="Удалить" title=" Click удалит это Фото!" width="16" height="16">
            </button>
        </form>
 
