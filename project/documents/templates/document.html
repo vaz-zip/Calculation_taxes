@@ -24,10 +24,18 @@
             <p class="text-break">{{ document.textDocument }}</p>
 
 <div class="foto"> 
-    {% load thumbnail %}   
-       {% for image in document.images.all %}
        
-       <img src="{{ image.file|thumbnail_url:'my_preview_1' }}" class="scale"></img> 
+       {% for image in document.images.all %}
+
+       {% load thumbnail %}
+
+       <a href="{{ image.file.url }}">
+        <img src="{{ image.file|thumbnail_url:'my_preview_1' }}" class="scale">
+        </a>
+        
+       <!-- <img src="{{ image.file|thumbnail_url:'my_preview_1' }}" class="scale"></img>  -->
+       
+
 
        <!-- <a href="{{ image.file.url }}">
         <img src="{% thumbnail image.file 200x0 %}" class="image-detail">

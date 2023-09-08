@@ -206,7 +206,7 @@ THUMBNAIL_DEBUG = True
 
 THUMBNAIL_ALIASES = {
     '': {
-        'my_preview_1': {'size': (222, 222), 'crop': 'smart'},
+        'my_preview_1': {'size': (202, 202), 'crop': 'smart'},
         'my_preview_2': {'size': (500, 0), 'crop': 'smart'},
         'my_preview_3': {'size': (75, 0), 'crop': 'smart'},
     },

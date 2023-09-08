@@ -38,5 +38,5 @@ class Image(models.Model):
     class Meta:
         verbose_name = 'Изображения'
         verbose_name_plural = 'Изображения'
-    def get_absolute_url(self):
-        return reverse('images:detail', args=[self.id])   
+    # def get_absolute_url(self):
+    #     return reverse('images:detail', args=[self.id])   
