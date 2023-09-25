@@ -15,7 +15,7 @@ class DocumentList(LoginRequiredMixin, ListView):
     template_name = 'documents.html'
     context_object_name = 'documents'
     queryset = Document.objects.all()
-    filter_class = DocFilter # вновь
+    filter_class = DocFilter# вновь
     paginate_by = 4
 
     def get_queryset(self):

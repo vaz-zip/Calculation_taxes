@@ -1,16 +1,19 @@
 from django_filters import FilterSet, DateFilter  # импортируем filterset, чем-то напоминающий знакомые дженерики
-import django.forms
+from django import forms
 from .models import Document
  
  
 # создаём фильтр
 class DocFilter(FilterSet):
-    # Здесь в мета классе надо предоставить модель и указать поля, по которым будет фильтроваться (т. е. подбираться) 
+    #Здесь в мета классе надо предоставить модель и указать поля, по которым будет фильтроваться (т. е. подбираться) 
     # информация о документаx
-    dateCreate = DateFilter(widget=django.forms.DateInput(attrs={'type': 'date'}))
-    
+    start_date = DateFilter(field_name='dateCreate',
+                                           widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                                           lookup_expr='gt', label='Внесён в базу с  ')
+    end_date = DateFilter(field_name='dateCreate',
+                                         widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                                         lookup_expr='lt', label='по   ')
+   
     class Meta:
         model = Document
-        fields = ('title', 'category')
-        # поля, которые мы будем фильтровать 
-        # (т. е. отбирать по каким-то критериям, имена берутся из моделей)
+        fields = ['category']

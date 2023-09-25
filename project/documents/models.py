@@ -28,6 +28,12 @@ class Document(models.Model):
     #         super().save(*args, **kwargs)
     def get_absolute_url(self):
         return f'/documents/{self.id}'
+    
+    # def start_date(self):
+    #       return self.dateCreate
+
+    # def end_date(self):
+    #     return self.dateCreate
 
 
 class Image(models.Model):

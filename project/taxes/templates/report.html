@@ -1,12 +1,15 @@
 {% extends 'flatpages/default.html' %}
 {% block content %}
     <h5 class="title_1"> User: {{ request.user.username }}, 
-        ID={{ request.user.id }}, 
-        Ваших отчетов в базe: {{ taxes.count }} </h5>
+        ID={{ request.user.id }} 
+        <!--  Ваших отчетов в базe: {{ taxes.count }} -->
+     </h5>
     
     {% if taxes %}
         <form class="search-doc" method="GET">
             {{ filter.form }}
+            <p></p>
+            </form>
             <div class="d-grid gap-3 col-3 btn-wrapper">
                 <input type="submit" class="btn" value="Сформировать отчет">
             </div>   
@@ -15,7 +18,7 @@
             <thead>
                 <tr>
                     <th scope="col">Фамилия</th>
-                    <th scope="col">Дата выплаты</th>
+                    <th scope="col">Дата начисления</th>
                     <th scope="col">Начислено</th>
                     <th scope="col">Соц.вычет</th>
                     <th scope="col">Коэф. ал.</th>
@@ -25,6 +28,7 @@
                     <th scope="col">Единый налог</th>
                     <th scope="col">Страх. от НС</th>
                     <th scope="col">Дополнения</th>
+                    <th scope="col">sum</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +37,7 @@
                     <tr>
                         <th scope="row"><a href="{% url 'charges' accruals_and_taxes.id %}" class="link-dark">
                             {{ accruals_and_taxes.worker|truncatechars:12 }}</a></th>  
-                        <th scope="row">{{ accruals_and_taxes.payment_date }}</th>
+                        <th scope="row">{{ accruals_and_taxes.reporting_date }}</th>
                         <th scope="row">{{ accruals_and_taxes.accrued }}</th>
                         <th scope="row">{{ accruals_and_taxes.social_deductions }}</th>
                         <th scope="row">{{ accruals_and_taxes.alimony }}</th>
@@ -43,6 +47,7 @@
                         <th scope="row">{{ accruals_and_taxes.single_tax }}</th>
                         <th scope="row">{{ accruals_and_taxes.injury_insurance }}</th>
                         <th scope="row">{{ accruals_and_taxes.description|truncatechars:12 }}</th>
+                        <th scope="row">{{ accruals_and_taxes.t_sum }}</th> 
                         <!-- <th scope="row"></th> -->
                     </tr>
                     
@@ -54,7 +59,7 @@
                          <th scope="col"></th> 
                          <th>{% for accruals_and_taxes in taxes %}
                                                    {{ accruals_and_taxes.accrued }} {% endfor %}</th>
-                         <th scope="col">{{ accruals_and_taxes.t_sum }}</th> 
+                         <th scope="col">{{ QuerySet }}</th> 
                          <th scope="col"></th>
                          <th scope="col"></th>
                          <th scope="col"></th>

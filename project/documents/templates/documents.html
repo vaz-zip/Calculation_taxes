@@ -1,9 +1,13 @@
 {% extends 'flatpages/default.html' %}
 {% block content %}
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
 <h5 class="title_1">User: {{ request.user.username }}, ID={{ request.user.id }}, Ваших документов в базe: {{ paginator.count }}</h5>
    {% if documents %}
    <h4 class="title_2">Найти документ</h4>
-<form class="search-doc" method="GET">
+<form class="search-doc" method="GET">    
  {{ filter.form }}
 <p></p>
 <div class="d-grid gap-3 col-3 btn-wrapper">

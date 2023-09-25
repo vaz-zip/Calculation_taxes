@@ -114,13 +114,11 @@ class FinreportList(LoginRequiredMixin, ListView):
 
     
     def get_context_data(self, **kwargs):
-        self.filter = self.filter_class
+        # self.filter = self.filter_class
         context = super().get_context_data(**kwargs)
-        # queryset = Accruals_and_taxes.objects.filter(title__icontains='war')[:5] # Получение 5 книг,
-        # aggregate(Sum('accrued'))
         context['filter'] = ReportFilter(self.request.GET, queryset=self.get_queryset())
-        context['sum'] = Accruals_and_taxes.objects.values('accrued')#aggregate(Sum("accrued")).get('accrued__sum')
-        # self.filter = self.filter_class(self.request.GET, super().get_queryset().filter(author_id=self.request.user.id))
+        # f = ReportFilter(queryset=Accruals_and_taxes.objects.all())
+        context['sum'] = Accruals_and_taxes.objects.filter().aggregate(Sum('accrued')).get('accrued__sum')
         return context
 
 

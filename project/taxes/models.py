@@ -30,7 +30,7 @@ class Staff(models.Model):
     ITN = models.IntegerField(unique=True, verbose_name='ИНН')
     post = models.CharField(max_length=24, verbose_name='Должность')
     dependents = models.IntegerField(default=0, verbose_name='Дети')
-    description = models.TextField(max_length=50, blank=True, verbose_name='Описание')
+    description = models.TextField(max_length=150, blank=True, verbose_name='Описание')
     class Meta:
         ordering = ['surname']
         verbose_name = 'Сотрудники'
@@ -49,10 +49,11 @@ class Accruals_and_taxes(models.Model):
 
     # author = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Автор')
     worker = models.ForeignKey(Staff, on_delete=models.CASCADE, verbose_name='Работник')
-    reporting_year = models.CharField(max_length=4, choices=POSITIONS, default="", verbose_name='Год')
-    reporting_quarter = models.CharField(max_length=6, choices=POSITIONS_1, default=three_month, verbose_name='Квартал')
-    reporting_month = models.CharField(max_length=4, choices=POSITIONS_2, default=january, verbose_name='Месяц')
+    reporting_year = models.CharField(max_length=4, choices=POSITIONS, default="2023", verbose_name='Год')
+    # reporting_quarter = models.CharField(max_length=6, choices=POSITIONS_1, default='3 мес.', verbose_name='Квартал')
+    # reporting_month = models.CharField(max_length=4, choices=POSITIONS_2, default='ЯНВ', verbose_name='Месяц')
     payment_date = models.DateField(verbose_name='Дата выплаты')
+    reporting_date = models.DateField(verbose_name='Дата начисления')
     accrued = models.FloatField(verbose_name='Начислено')
     alimony = models.FloatField(default=0, verbose_name='Коэфф.Ал')
     description = models.TextField(blank=True, verbose_name='Описание')
@@ -97,9 +98,10 @@ class Accruals_and_taxes(models.Model):
         return accrued * 0.004
     
 
-    # def t_sum(self):
-    #     accrued = self.accrued
-    #     return sum([accruals_and_taxes.accrued for accruals_and_taxes in self.taxes.all()])
+    def t_sum(self):
+        sum_acr = Accruals_and_taxes.objects.aggregate(Sum('accrued')).get('accrued__sum')
+        return sum_acr
+    
     
     def __str__(self):
         return f'{self.accrued}'

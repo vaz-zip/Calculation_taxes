@@ -1,5 +1,18 @@
 [
 {
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-09-24T12:25:37.498Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "vaz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -255,466 +268,448 @@
   "model": "auth.permission",
   "pk": 29,
   "fields": {
-    "name": "Can add Сотрудники",
+    "name": "Can add Документы",
     "content_type": 8,
-    "codename": "add_staff"
+    "codename": "add_document"
   }
 },
 {
   "model": "auth.permission",
   "pk": 30,
   "fields": {
-    "name": "Can change Сотрудники",
+    "name": "Can change Документы",
     "content_type": 8,
-    "codename": "change_staff"
+    "codename": "change_document"
   }
 },
 {
   "model": "auth.permission",
   "pk": 31,
   "fields": {
-    "name": "Can delete Сотрудники",
+    "name": "Can delete Документы",
     "content_type": 8,
-    "codename": "delete_staff"
+    "codename": "delete_document"
   }
 },
 {
   "model": "auth.permission",
   "pk": 32,
   "fields": {
-    "name": "Can view Сотрудники",
+    "name": "Can view Документы",
     "content_type": 8,
-    "codename": "view_staff"
+    "codename": "view_document"
   }
 },
 {
   "model": "auth.permission",
   "pk": 33,
   "fields": {
-    "name": "Can add Выплаты",
+    "name": "Can add Изображения",
     "content_type": 9,
-    "codename": "add_accruals_and_taxes"
+    "codename": "add_image"
   }
 },
 {
   "model": "auth.permission",
   "pk": 34,
   "fields": {
-    "name": "Can change Выплаты",
+    "name": "Can change Изображения",
     "content_type": 9,
-    "codename": "change_accruals_and_taxes"
+    "codename": "change_image"
   }
 },
 {
   "model": "auth.permission",
   "pk": 35,
   "fields": {
-    "name": "Can delete Выплаты",
+    "name": "Can delete Изображения",
     "content_type": 9,
-    "codename": "delete_accruals_and_taxes"
+    "codename": "delete_image"
   }
 },
 {
   "model": "auth.permission",
   "pk": 36,
   "fields": {
-    "name": "Can view Выплаты",
+    "name": "Can view Изображения",
     "content_type": 9,
-    "codename": "view_accruals_and_taxes"
+    "codename": "view_image"
   }
 },
 {
   "model": "auth.permission",
   "pk": 37,
   "fields": {
-    "name": "Can add Документы",
+    "name": "Can add source",
     "content_type": 10,
-    "codename": "add_document"
+    "codename": "add_source"
   }
 },
 {
   "model": "auth.permission",
   "pk": 38,
   "fields": {
-    "name": "Can change Документы",
+    "name": "Can change source",
     "content_type": 10,
-    "codename": "change_document"
+    "codename": "change_source"
   }
 },
 {
   "model": "auth.permission",
   "pk": 39,
   "fields": {
-    "name": "Can delete Документы",
+    "name": "Can delete source",
     "content_type": 10,
-    "codename": "delete_document"
+    "codename": "delete_source"
   }
 },
 {
   "model": "auth.permission",
   "pk": 40,
   "fields": {
-    "name": "Can view Документы",
+    "name": "Can view source",
     "content_type": 10,
-    "codename": "view_document"
+    "codename": "view_source"
   }
 },
 {
   "model": "auth.permission",
   "pk": 41,
   "fields": {
-    "name": "Can add Изображения",
+    "name": "Can add thumbnail",
     "content_type": 11,
-    "codename": "add_image"
+    "codename": "add_thumbnail"
   }
 },
 {
   "model": "auth.permission",
   "pk": 42,
   "fields": {
-    "name": "Can change Изображения",
+    "name": "Can change thumbnail",
     "content_type": 11,
-    "codename": "change_image"
+    "codename": "change_thumbnail"
   }
 },
 {
   "model": "auth.permission",
   "pk": 43,
   "fields": {
-    "name": "Can delete Изображения",
+    "name": "Can delete thumbnail",
     "content_type": 11,
-    "codename": "delete_image"
+    "codename": "delete_thumbnail"
   }
 },
 {
   "model": "auth.permission",
   "pk": 44,
   "fields": {
-    "name": "Can view Изображения",
+    "name": "Can view thumbnail",
     "content_type": 11,
-    "codename": "view_image"
+    "codename": "view_thumbnail"
   }
 },
 {
   "model": "auth.permission",
   "pk": 45,
   "fields": {
-    "name": "Can add email address",
+    "name": "Can add thumbnail dimensions",
     "content_type": 12,
-    "codename": "add_emailaddress"
+    "codename": "add_thumbnaildimensions"
   }
 },
 {
   "model": "auth.permission",
   "pk": 46,
   "fields": {
-    "name": "Can change email address",
+    "name": "Can change thumbnail dimensions",
     "content_type": 12,
-    "codename": "change_emailaddress"
+    "codename": "change_thumbnaildimensions"
   }
 },
 {
   "model": "auth.permission",
   "pk": 47,
   "fields": {
-    "name": "Can delete email address",
+    "name": "Can delete thumbnail dimensions",
     "content_type": 12,
-    "codename": "delete_emailaddress"
+    "codename": "delete_thumbnaildimensions"
   }
 },
 {
   "model": "auth.permission",
   "pk": 48,
   "fields": {
-    "name": "Can view email address",
+    "name": "Can view thumbnail dimensions",
     "content_type": 12,
-    "codename": "view_emailaddress"
+    "codename": "view_thumbnaildimensions"
   }
 },
 {
   "model": "auth.permission",
   "pk": 49,
   "fields": {
-    "name": "Can add email confirmation",
+    "name": "Can add email address",
     "content_type": 13,
-    "codename": "add_emailconfirmation"
+    "codename": "add_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 50,
   "fields": {
-    "name": "Can change email confirmation",
+    "name": "Can change email address",
     "content_type": 13,
-    "codename": "change_emailconfirmation"
+    "codename": "change_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 51,
   "fields": {
-    "name": "Can delete email confirmation",
+    "name": "Can delete email address",
     "content_type": 13,
-    "codename": "delete_emailconfirmation"
+    "codename": "delete_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 52,
   "fields": {
-    "name": "Can view email confirmation",
+    "name": "Can view email address",
     "content_type": 13,
-    "codename": "view_emailconfirmation"
+    "codename": "view_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 53,
   "fields": {
-    "name": "Can add social account",
+    "name": "Can add email confirmation",
     "content_type": 14,
-    "codename": "add_socialaccount"
+    "codename": "add_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 54,
   "fields": {
-    "name": "Can change social account",
+    "name": "Can change email confirmation",
     "content_type": 14,
-    "codename": "change_socialaccount"
+    "codename": "change_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 55,
   "fields": {
-    "name": "Can delete social account",
+    "name": "Can delete email confirmation",
     "content_type": 14,
-    "codename": "delete_socialaccount"
+    "codename": "delete_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 56,
   "fields": {
-    "name": "Can view social account",
+    "name": "Can view email confirmation",
     "content_type": 14,
-    "codename": "view_socialaccount"
+    "codename": "view_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 57,
   "fields": {
-    "name": "Can add social application",
+    "name": "Can add social account",
     "content_type": 15,
-    "codename": "add_socialapp"
+    "codename": "add_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 58,
   "fields": {
-    "name": "Can change social application",
+    "name": "Can change social account",
     "content_type": 15,
-    "codename": "change_socialapp"
+    "codename": "change_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 59,
   "fields": {
-    "name": "Can delete social application",
+    "name": "Can delete social account",
     "content_type": 15,
-    "codename": "delete_socialapp"
+    "codename": "delete_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 60,
   "fields": {
-    "name": "Can view social application",
+    "name": "Can view social account",
     "content_type": 15,
-    "codename": "view_socialapp"
+    "codename": "view_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 61,
   "fields": {
-    "name": "Can add social application token",
+    "name": "Can add social application",
     "content_type": 16,
-    "codename": "add_socialtoken"
+    "codename": "add_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 62,
   "fields": {
-    "name": "Can change social application token",
+    "name": "Can change social application",
     "content_type": 16,
-    "codename": "change_socialtoken"
+    "codename": "change_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 63,
   "fields": {
-    "name": "Can delete social application token",
+    "name": "Can delete social application",
     "content_type": 16,
-    "codename": "delete_socialtoken"
+    "codename": "delete_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 64,
   "fields": {
-    "name": "Can view social application token",
+    "name": "Can view social application",
     "content_type": 16,
-    "codename": "view_socialtoken"
+    "codename": "view_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 65,
   "fields": {
-    "name": "Can add source",
+    "name": "Can add social application token",
     "content_type": 17,
-    "codename": "add_source"
+    "codename": "add_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 66,
   "fields": {
-    "name": "Can change source",
+    "name": "Can change social application token",
     "content_type": 17,
-    "codename": "change_source"
+    "codename": "change_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 67,
   "fields": {
-    "name": "Can delete source",
+    "name": "Can delete social application token",
     "content_type": 17,
-    "codename": "delete_source"
+    "codename": "delete_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 68,
   "fields": {
-    "name": "Can view source",
+    "name": "Can view social application token",
     "content_type": 17,
-    "codename": "view_source"
+    "codename": "view_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 69,
   "fields": {
-    "name": "Can add thumbnail",
+    "name": "Can add Сотрудники",
     "content_type": 18,
-    "codename": "add_thumbnail"
+    "codename": "add_staff"
   }
 },
 {
   "model": "auth.permission",
   "pk": 70,
   "fields": {
-    "name": "Can change thumbnail",
+    "name": "Can change Сотрудники",
     "content_type": 18,
-    "codename": "change_thumbnail"
+    "codename": "change_staff"
   }
 },
 {
   "model": "auth.permission",
   "pk": 71,
   "fields": {
-    "name": "Can delete thumbnail",
+    "name": "Can delete Сотрудники",
     "content_type": 18,
-    "codename": "delete_thumbnail"
+    "codename": "delete_staff"
   }
 },
 {
   "model": "auth.permission",
   "pk": 72,
   "fields": {
-    "name": "Can view thumbnail",
+    "name": "Can view Сотрудники",
     "content_type": 18,
-    "codename": "view_thumbnail"
+    "codename": "view_staff"
   }
 },
 {
   "model": "auth.permission",
   "pk": 73,
   "fields": {
-    "name": "Can add thumbnail dimensions",
+    "name": "Can add Выплаты",
     "content_type": 19,
-    "codename": "add_thumbnaildimensions"
+    "codename": "add_accruals_and_taxes"
   }
 },
 {
   "model": "auth.permission",
   "pk": 74,
   "fields": {
-    "name": "Can change thumbnail dimensions",
+    "name": "Can change Выплаты",
     "content_type": 19,
-    "codename": "change_thumbnaildimensions"
+    "codename": "change_accruals_and_taxes"
   }
 },
 {
   "model": "auth.permission",
   "pk": 75,
   "fields": {
-    "name": "Can delete thumbnail dimensions",
+    "name": "Can delete Выплаты",
     "content_type": 19,
-    "codename": "delete_thumbnaildimensions"
+    "codename": "delete_accruals_and_taxes"
   }
 },
 {
   "model": "auth.permission",
   "pk": 76,
   "fields": {
-    "name": "Can view thumbnail dimensions",
+    "name": "Can view Выплаты",
     "content_type": 19,
-    "codename": "view_thumbnaildimensions"
+    "codename": "view_accruals_and_taxes"
   }
 },
 {
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$390000$9KmBmeXtSELKD1qU3wBTxB$oXSECt2HFzpEdBWOhVJPbqpbOCwUaTYAaOpC+ehUPdY=",
-    "last_login": "2023-08-21T10:45:08.503Z",
+    "password": "pbkdf2_sha256$390000$Peu3nCGX93EbIyXxI7Kjlg$aDCNYKVClXL+LpyRyH08/r+2W7dJJTxHPGw2L+G9O7k=",
+    "last_login": "2023-09-24T12:24:07Z",
     "is_superuser": true,
     "username": "vaz",
     "first_name": "",
     "last_name": "",
-    "email": "",
+    "email": "angel_first@bk.ru",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2023-08-21T10:44:30.292Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 2,
-  "fields": {
-    "password": "pbkdf2_sha256$390000$nOFQE9eV1c1XTpdTKlcqts$8V9wWMvwwzcTBwmQsh77qfWY0ysWi+lt5hFyHPZeeqc=",
-    "last_login": "2023-09-14T11:44:58.038Z",
-    "is_superuser": false,
-    "username": "ivan",
-    "first_name": "",
-    "last_name": "",
-    "email": "vaz-zip@ya.ru",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-08-21T10:46:06.454Z",
+    "date_joined": "2023-09-24T12:22:45Z",
     "groups": [],
     "user_permissions": []
   }
@@ -779,29 +774,13 @@
   "model": "contenttypes.contenttype",
   "pk": 8,
   "fields": {
-    "app_label": "taxes",
-    "model": "staff"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 9,
-  "fields": {
-    "app_label": "taxes",
-    "model": "accruals_and_taxes"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 10,
-  "fields": {
     "app_label": "documents",
     "model": "document"
   }
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 11,
+  "pk": 9,
   "fields": {
     "app_label": "documents",
     "model": "image"
@@ -809,47 +788,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 12,
-  "fields": {
-    "app_label": "account",
-    "model": "emailaddress"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 13,
-  "fields": {
-    "app_label": "account",
-    "model": "emailconfirmation"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 14,
-  "fields": {
-    "app_label": "socialaccount",
-    "model": "socialaccount"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 15,
-  "fields": {
-    "app_label": "socialaccount",
-    "model": "socialapp"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 16,
-  "fields": {
-    "app_label": "socialaccount",
-    "model": "socialtoken"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 17,
+  "pk": 10,
   "fields": {
     "app_label": "easy_thumbnails",
     "model": "source"
@@ -857,7 +796,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 18,
+  "pk": 11,
   "fields": {
     "app_label": "easy_thumbnails",
     "model": "thumbnail"
@@ -865,82 +804,74 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 19,
+  "pk": 12,
   "fields": {
     "app_label": "easy_thumbnails",
     "model": "thumbnaildimensions"
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "03b3mxcseqe3wfcjw8begyp5r2hjf9dp",
+  "model": "contenttypes.contenttype",
+  "pk": 13,
   "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qgRcC:ce7am5ybB0VHTpaUYL2uFS6QgO2dmJ4skIbZp6j75gc",
-    "expire_date": "2023-09-27T15:17:16.437Z"
+    "app_label": "account",
+    "model": "emailaddress"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "account",
+    "model": "emailconfirmation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialaccount"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialapp"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialtoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "taxes",
+    "model": "staff"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "taxes",
+    "model": "accruals_and_taxes"
   }
 },
 {
   "model": "sessions.session",
-  "pk": "071hdcibbsos64x3if9pwasqqiej8q19",
+  "pk": "uasumt496fkuqs0b7z5y9r7dbnsy5rbk",
   "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qg2Qi:6VfmHG6mBdkCX6Uxf1HJoYV3Tez0evony8Nlbgk-VG8",
-    "expire_date": "2023-09-26T12:23:44.359Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "7xkcvds7gjfkut2yy889nkny807rnl3o",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qZZD0:yuwzkkXUVz1XSVwD2PJCOzGWZi415Y_JQqQIEGOZJ8E",
-    "expire_date": "2023-09-08T15:58:50.840Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "m533xi3p3jbruwqcm7pcru4bqwgqx99q",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qebnE:oNEVmjBNqK-g6F8NpVW_9RY9089IU9iGQnEfRVOZ4zA",
-    "expire_date": "2023-09-22T13:45:04.219Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "mwwu6s6vtcut0018zgqpok038lp17ad8",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qeFTJ:Z72CgyMdmSPwzyL_K3omQOenctSUBADwFkeRyKx3Dkw",
-    "expire_date": "2023-09-21T13:55:01.322Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "s19ynn374bjdwm9aduaxdy4e0xscysc4",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qgkmI:ct8PVF2qV_Q6zUEV2iIO3DgRJAsYjsPGVXvtJR-tQHQ",
-    "expire_date": "2023-09-28T11:44:58.043Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "sntuyllc9nmo56uud11oz8tv6f08qmta",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qeFhN:aGkG4UJE4fgvZmtWcV87Ym1pC_drAFpY_3uIqjbvD7g",
-    "expire_date": "2023-09-21T14:09:33.701Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "t392mtet44ih432t7memb2awc9a3rchn",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qeaP0:DXQ7CBYFGbXtFRf2mx4yftPNtlNq17q8K6p9u6W7hNs",
-    "expire_date": "2023-09-22T12:15:58.781Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "yrbk868hb15c6rya9kfk0uiiqttmed90",
-  "fields": {
-    "session_data": ".eJxVjUsOwiAQhu_C2jQtLVS604uQYWZIiQ01BRKN8e4W04Uu_-f3EhZKnm1JvNlAYhJSnH49B3jjWANYlmo3gLiWmJtv54hTc9kVxxwQcljj9Vj9Xc2Q5goA7QB8Swb5LDWAkqpz2BnpqNWj6ogcjEYb7j0PhNqYoVdGeWTq2bt6mjilHWP5cQ_bU0zt-wP0okSs:1qY2fh:fVTm2-oYe1I8ejSQoe8xFawexuMdcHm4pKEqGmYLV5k",
-    "expire_date": "2023-09-04T11:02:09.482Z"
+    "session_data": ".eJxVjDsOwyAQRO9CHSFYtHxSps8ZECwQnEQgGbuycvfYkoukGmnem9mYD-tS_Try7KfErkyyy28XA71yO0B6hvbonHpb5inyQ-EnHfzeU37fTvfvoIZR9zUIK5GkIpAWTTEarQgpRhcEoNVSgbFUEF0Gp9EIB6RI7KFV1oCFfb6mJTYp:1qkO9f:S-5937dQgLpdXvArozcTSkCxMooicDlylFBpTf25oyg",
+    "expire_date": "2023-10-08T12:24:07.587Z"
   }
 },
 {
@@ -955,55 +886,246 @@
   "model": "taxes.staff",
   "pk": 1,
   "fields": {
-    "author": 2,
-    "surname": "Мюрат",
-    "name": "Иохим",
-    "patronimic": "Викторович",
-    "ITN": 23456123,
-    "post": "Кoроль Неаполя",
-    "dependents": 4,
-    "description": "Зять Наполеона"
+    "author": 1,
+    "surname": "Абрикосов",
+    "name": "Иван",
+    "patronimic": "Самсонович",
+    "ITN": 34567890,
+    "post": "сторож",
+    "dependents": 2,
+    "description": "Хороший сторож"
   }
 },
 {
   "model": "taxes.staff",
   "pk": 2,
   "fields": {
-    "author": 2,
-    "surname": "Лозовой",
-    "name": "Дрон",
-    "patronimic": "Модестович",
-    "ITN": 2452355,
-    "post": "хакер",
-    "dependents": 1,
-    "description": "Крутой хакер"
+    "author": 1,
+    "surname": "Аббасов",
+    "name": "Рахмон",
+    "patronimic": "Ниязович",
+    "ITN": 567890,
+    "post": "строитель",
+    "dependents": 2,
+    "description": "Каменьщик 2-го разряда"
   }
 },
 {
   "model": "taxes.staff",
   "pk": 3,
   "fields": {
-    "author": 2,
-    "surname": "Ленин",
-    "name": "Владимир",
-    "patronimic": "Ильич",
-    "ITN": 111111111,
-    "post": "вождь МП",
+    "author": 1,
+    "surname": "Фарадей",
+    "name": "Майкл",
+    "patronimic": "Джонович",
+    "ITN": 12345,
+    "post": "физик",
     "dependents": 0,
-    "description": "Революционер, народный коммисар."
+    "description": "Опывтный электрик"
   }
 },
 {
   "model": "taxes.staff",
   "pk": 4,
   "fields": {
-    "author": 2,
-    "surname": "Абдурахман",
-    "name": "Хасан",
-    "patronimic": "ибн Хаттаб",
-    "ITN": 0,
-    "post": "джин",
-    "dependents": 3,
-    "description": "Волшебник восточных сказок"
+    "author": 1,
+    "surname": "Бокий",
+    "name": "Глеб",
+    "patronimic": "Иванович",
+    "ITN": 3456789,
+    "post": "Начальник 9-го отдела ГУ",
+    "dependents": 0,
+    "description": "Полное наименование должности: Начальник 9-го отдела ГУГБ НКВД СССР"
+  }
+},
+{
+  "model": "taxes.staff",
+  "pk": 5,
+  "fields": {
+    "author": 1,
+    "surname": "Больноклювов",
+    "name": "Болик",
+    "patronimic": "Дакович",
+    "ITN": 87654,
+    "post": "утенок",
+    "dependents": 0,
+    "description": "классный утк"
+  }
+},
+{
+  "model": "taxes.accruals_and_taxes",
+  "pk": 1,
+  "fields": {
+    "worker": 2,
+    "reporting_year": "2023",
+    "payment_date": "2023-09-06",
+    "reporting_date": "2023-08-31",
+    "accrued": 20000.0,
+    "alimony": 0.0,
+    "description": "зп август 2023"
+  }
+},
+{
+  "model": "taxes.accruals_and_taxes",
+  "pk": 2,
+  "fields": {
+    "worker": 1,
+    "reporting_year": "2023",
+    "payment_date": "2023-09-17",
+    "reporting_date": "2023-09-17",
+    "accrued": 25000.0,
+    "alimony": 0.0,
+    "description": "аванс сентябрь"
+  }
+},
+{
+  "model": "taxes.accruals_and_taxes",
+  "pk": 3,
+  "fields": {
+    "worker": 3,
+    "reporting_year": "2023",
+    "payment_date": "2023-09-04",
+    "reporting_date": "2023-08-31",
+    "accrued": 23000.0,
+    "alimony": 0.0,
+    "description": "зп август"
+  }
+},
+{
+  "model": "taxes.accruals_and_taxes",
+  "pk": 4,
+  "fields": {
+    "worker": 4,
+    "reporting_year": "2023",
+    "payment_date": "2023-06-05",
+    "reporting_date": "2023-05-31",
+    "accrued": 30000.0,
+    "alimony": 0.0,
+    "description": "зп май"
+  }
+},
+{
+  "model": "documents.document",
+  "pk": 1,
+  "fields": {
+    "author": 1,
+    "title": "Письмо Татьяны Онегину",
+    "slug": "",
+    "category": "СПРАВКА",
+    "textDocument": "Быть может я тогда моложе...",
+    "number": 1,
+    "dateCreate": "2023-09-05T05:00:00Z"
+  }
+},
+{
+  "model": "documents.image",
+  "pk": 1,
+  "fields": {
+    "document": 1,
+    "file": "media/images/остров_UCzyvBU.jpg"
+  }
+},
+{
+  "model": "documents.image",
+  "pk": 2,
+  "fields": {
+    "document": 1,
+    "file": "media/images/утки_yn1pTyc.jpg"
+  }
+},
+{
+  "model": "documents.image",
+  "pk": 3,
+  "fields": {
+    "document": 1,
+    "file": "media/images/кот2_zcmIAvV.jpg"
+  }
+},
+{
+  "model": "easy_thumbnails.source",
+  "pk": 1,
+  "fields": {
+    "storage_hash": "f9bde26a1556cd667f742bd34ec7c55e",
+    "name": "media/images/остров_UCzyvBU.jpg",
+    "modified": "2023-09-24T12:27:06.477Z"
+  }
+},
+{
+  "model": "easy_thumbnails.source",
+  "pk": 2,
+  "fields": {
+    "storage_hash": "f9bde26a1556cd667f742bd34ec7c55e",
+    "name": "media/images/утки_yn1pTyc.jpg",
+    "modified": "2023-09-24T12:27:06.518Z"
+  }
+},
+{
+  "model": "easy_thumbnails.source",
+  "pk": 3,
+  "fields": {
+    "storage_hash": "f9bde26a1556cd667f742bd34ec7c55e",
+    "name": "media/images/кот2_zcmIAvV.jpg",
+    "modified": "2023-09-24T12:27:06.559Z"
+  }
+},
+{
+  "model": "easy_thumbnails.thumbnail",
+  "pk": 1,
+  "fields": {
+    "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+    "name": "media/images/остров_UCzyvBU.jpg.220x220_q85_crop-smart.jpg",
+    "modified": "2023-09-24T12:27:06.435Z",
+    "source": 1
+  }
+},
+{
+  "model": "easy_thumbnails.thumbnail",
+  "pk": 2,
+  "fields": {
+    "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+    "name": "media/images/остров_UCzyvBU.jpg.200x0_q85.jpg",
+    "modified": "2023-09-24T12:27:06.480Z",
+    "source": 1
+  }
+},
+{
+  "model": "easy_thumbnails.thumbnail",
+  "pk": 3,
+  "fields": {
+    "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+    "name": "media/images/утки_yn1pTyc.jpg.220x220_q85_crop-smart.jpg",
+    "modified": "2023-09-24T12:27:06.501Z",
+    "source": 2
+  }
+},
+{
+  "model": "easy_thumbnails.thumbnail",
+  "pk": 4,
+  "fields": {
+    "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+    "name": "media/images/утки_yn1pTyc.jpg.200x0_q85.jpg",
+    "modified": "2023-09-24T12:27:06.522Z",
+    "source": 2
+  }
+},
+{
+  "model": "easy_thumbnails.thumbnail",
+  "pk": 5,
+  "fields": {
+    "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+    "name": "media/images/кот2_zcmIAvV.jpg.220x220_q85_crop-smart.jpg",
+    "modified": "2023-09-24T12:27:06.545Z",
+    "source": 3
+  }
+},
+{
+  "model": "easy_thumbnails.thumbnail",
+  "pk": 6,
+  "fields": {
+    "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+    "name": "media/images/кот2_zcmIAvV.jpg.200x0_q85.jpg",
+    "modified": "2023-09-24T12:27:06.563Z",
+    "source": 3
   }
 }
+]

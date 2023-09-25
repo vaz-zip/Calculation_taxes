@@ -14,7 +14,7 @@ class StaffAdmin(admin.ModelAdmin):
 class Accruals_and_taxesAdmin(admin.ModelAdmin):
     fields = ['worker', 'accrued', 'reporting_year', 'reporting_quarter',
               'reporting_month', 'payment_date', 'description', 'alimony']
-    list_display = ['worker', 'payment_date', 'reporting_year', 'reporting_quarter', 'reporting_month', 'accrued', 'social_deductions',
+    list_display = ['worker', 'payment_date', 'reporting_year', 'accrued', 'social_deductions',
                     'alimony', 'alimony_tax', 'income_tax', 'salary', 'single_tax', 'injury_insurance', 'description', 'worker_id']
 
     def get_queryset(self, obj):

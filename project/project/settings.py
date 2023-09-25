@@ -120,22 +120,22 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'docdb',
-        'USER': 'doccs',
-        'PASSWORD': 'p123@sql',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'docdb',
+#         'USER': 'doccs',
+#         'PASSWORD': 'p123@sql',
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#     }
+# }
 
 
 # Password validation
@@ -206,7 +206,7 @@ THUMBNAIL_DEBUG = True
 
 THUMBNAIL_ALIASES = {
     '': {
-        'my_preview_1': {'size': (202, 202), 'crop': 'smart'},
+        'my_preview_1': {'size': (220, 220), 'crop': 'smart'},
         'my_preview_2': {'size': (500, 0), 'crop': 'smart'},
         'my_preview_3': {'size': (75, 0), 'crop': 'smart'},
     },

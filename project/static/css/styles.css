@@ -390,8 +390,8 @@ a.reg-user {
 
 .delete_button {
     position: relative;
-    top: -7.5em;
-    left: -2.4em;
+    top: -8em;
+    left: -2em;
     /* transform: translate(-50%, -50%); */
     /* -ms-transform: translate(-50%, -50%); */
     /* background-color: #555; */

@@ -1,5 +1,5 @@
 from django_filters import FilterSet, DateFilter  # импортируем filterset, чем-то напоминающий знакомые дженерики
-import django.forms
+from django import forms
 from .models import Staff, Accruals_and_taxes
 # from taxes.resources import POSITIONS, POSITIONS_1, POSITIONS_2, y_2023, january, three_month, positions
 
@@ -14,14 +14,29 @@ class StaffFilter(FilterSet):
 
 
 class ChargesFilter(FilterSet):
-    payment_date = DateFilter(widget=django.forms.DateInput(attrs={'type': 'date'}))
+    start_date = DateFilter(field_name='payment_date',
+                                           widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                                           lookup_expr='gt', label='Период выплат с  ')
+    end_date = DateFilter(field_name='payment_date',
+                                         widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                                         lookup_expr='lt', label='по   ')
+    
     class Meta:
         model = Accruals_and_taxes
-        fields = ('worker', 'payment_date')
+        fields = ['worker']
         
 
 
 class ReportFilter(FilterSet):
+    start_date = DateFilter(field_name='reporting_date',
+                                           widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                                           lookup_expr='gt', label='Период начисления с  ')
+    end_date = DateFilter(field_name='reporting_date',
+                                         widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                                         lookup_expr='lt', label='по   ')
+
+
     class Meta:
         model = Accruals_and_taxes
-        fields = ('reporting_month', 'reporting_quarter', 'reporting_year')   
+        fields = ['reporting_year']
+        
