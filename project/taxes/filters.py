@@ -21,22 +21,35 @@ class ChargesFilter(FilterSet):
                                          widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
                                          lookup_expr='lt', label='по   ')
     
+    date_range = ['start_date', 'end_date']
+    
     class Meta:
         model = Accruals_and_taxes
         fields = ['worker']
-        
+      
 
 
 class ReportFilter(FilterSet):
     start_date = DateFilter(field_name='reporting_date',
-                                           widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-                                           lookup_expr='gt', label='Период начисления с  ')
+                            widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                            lookup_expr='gt', label='Период начисления с  ')
     end_date = DateFilter(field_name='reporting_date',
-                                         widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-                                         lookup_expr='lt', label='по   ')
+                          widget= forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+                          lookup_expr='lt', label='по   ')
+    
+    # end_date = '2023-09-01'
+    
+    
+
+    # class Meta:
+    #     model = Accruals_and_taxes
+    #     fields = ['reporting_year']
+
+    # def __str__(self):
+    #     return f'{self.start_date}, {self.end_date}'
+    # print  f'{self.start_date}, {self.end_date}'  
+    
 
 
-    class Meta:
-        model = Accruals_and_taxes
-        fields = ['reporting_year']
         
+# print(dir(ReportFilter)) 

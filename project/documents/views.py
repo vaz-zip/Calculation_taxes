@@ -9,18 +9,17 @@ from .filters import DocFilter
 from .forms import DocumentCreateForm, DocumentForm
 
 
-
 class DocumentList(LoginRequiredMixin, ListView):
     model = Document
     template_name = 'documents.html'
     context_object_name = 'documents'
     queryset = Document.objects.all()
-    filter_class = DocFilter# вновь
+    filter_class = DocFilter  # вновь
     paginate_by = 4
 
     def get_queryset(self):
         self.filter = self.filter_class(self.request.GET, super().get_queryset().filter(author_id=self.request.user.id))
-        return self.filter.qs.all()                                          
+        return self.filter.qs.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,6 +44,7 @@ class DocumentDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'doc_delete.html'
     context_object_name = 'document'
     success_url = '/documents/document'
+
 
 # def doc_filter(request):
 #     f = DocFilter(request.GET, queryset=Document.objects.all())
@@ -80,7 +80,7 @@ class DocumentUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self, **kwargs):
         id = self.kwargs.get('pk')
         return Document.objects.get(pk=id)
-    
+
 
 class ImageDeleteView(LoginRequiredMixin, RedirectView):
     def post(self, request, image_id: int, *args, **kwargs):
@@ -89,4 +89,4 @@ class ImageDeleteView(LoginRequiredMixin, RedirectView):
 
         return redirect(to=reverse('document', kwargs={
             'pk': document_id,
-        }))    
+        }))

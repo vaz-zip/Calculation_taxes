@@ -4,21 +4,6 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from taxes.resources import POSITIONS, POSITIONS_1, POSITIONS_2, y_2023, january, three_month
 
-# class Firm(models.Model): 
-#     name = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Фирма')
-
-#     def __str__(self):
-#         return f'{self.name}'
-
-#     class Meta:
-#         verbose_name = 'Фирма'
-# class Author(User):
-#     class Meta:
-#         proxy = True
-
-#     def __str__(self):
-#         return self.first_name
-    
 
 class Staff(models.Model):
     # author = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Автор')
@@ -45,9 +30,7 @@ class Staff(models.Model):
 
 
 class Accruals_and_taxes(models.Model):
-    # class Reporting(models.TextChoices):
 
-    # author = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Автор')
     worker = models.ForeignKey(Staff, on_delete=models.CASCADE, verbose_name='Работник')
     reporting_year = models.CharField(max_length=4, choices=POSITIONS, default="2023", verbose_name='Год')
     # reporting_quarter = models.CharField(max_length=6, choices=POSITIONS_1, default='3 мес.', verbose_name='Квартал')
@@ -97,38 +80,8 @@ class Accruals_and_taxes(models.Model):
         accrued = self.accrued
         return accrued * 0.004
     
-
-    def t_sum(self):
-        sum_acr = Accruals_and_taxes.objects.aggregate(Sum('accrued')).get('accrued__sum')
-        return sum_acr
-    
-    
     def __str__(self):
         return f'{self.accrued}'
-
-                #Accruals_and_taxes.objects.aggregate(Sum('accrued'))
-        # summ = Accruals_and_taxes.objects.all()
-#  {% for accruals_and_taxes in taxes %}
-#                                                    {{ accruals_and_taxes.accrued }       
-    # def single_tax_sum(self):
-    #     accrued = self.accrued
-    #     accruals_and_taxes = Accruals_and_taxes()
-    #     accrued = i
-
-    #     for i  in accruals_and_taxes:
-    #         i = i + i
-    #         return i * 0.3
-
-    #     field_name_sum = Accruals_and_taxes.objects.aggregate(Sum('accrued'))
-
-        # print(my_dict.get('Возраст'))
-        # for k, v in field_name_sum.items():
-        # return field_name_sum.get('accrued_sum')
-        # S = 0
-        # single_tax = self.single_tax()
-        # for vol in single_tax:
-        #     S = S + vol
-        #     return S
 
     class Meta:
         verbose_name = 'Выплаты'
