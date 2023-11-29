@@ -123,46 +123,66 @@ class FinreportList(LoginRequiredMixin, ListView):
         
         def summ_accrued():
             summ = 0
-            for item in processed_request.values("accrued"):
-                for accrued in item.values():
-                    print(accrued)
-                    for i in [accrued]:
+            for item in processed_request.values('accrued'): # получаем начислеия за период
+                for accrued in item.values():                
+                    for i in [accrued]:                      # получаем сумму начислений за период
                         summ += i
-            return(summ)
-        context['summ'] = summ_accrued
-               
-              
-                # for woorker in processed_request
+            return summ
+        context['summ'] = summ_accrued                       # контекст суммы начислений
 
-        # dependents_list = Staff.objects.all()
-        # print(dependents_list)
-        # dep = Accruals_and_taxes.objects.all()
-        # print(dep)
-        # for worker in processed_request:
-        #     sum_soc = [worker.worker.dependents]
-        #     for item in sum_soc:
-        #         item += item
-        # print(item)
-            # dependents = worker.worker.dependents
-        #         if dependents <= 2:
-        #             return dependents * 1400
-        #         elif dependents >= 3:
-        #             return 2800 + (3000 * int(dependents - 2))
-        #         else:
-        #             return dependents == 0
-        # print(social)        
-            
-            # print(f'{worker.worker.surname}  {worker.worker.dependents}')
 
-        # for staff in dependents_list:
-        #     print(f' {staff.surname} {staff.name} {staff.dependents}')
-         
+        def summ_alimony():
+            summ = 0
+            for item in processed_request:
+                # print(item.worker, item.alimony)
+                for i in [item.alimony]:
+                    summ += i
+            return summ
+        context['summ_al'] = summ_alimony  
 
-        # context['sum'] = Accruals_and_taxes.objects.filter(reporting_date__range = (start_date, end_date)).aggregate(Sum('accrued')).get('accrued__sum')
-        # b = context['sum']
-        # print(b)
-        # context['alimony'] = Accruals_and_taxes.objects.filter(reporting_date__range = (start_date, end_date)).aggregate(Sum('alimony')).get('alimony__sum')
-        # int_sum = int(context['summ'])
+
+        def sum_income_tax():
+            summ = 0
+            for item in processed_request:
+                print(item.worker, item.accrued, (item.accrued) * 0.13)
+                for i in [item.accrued * 0.13]:
+                    summ += i
+            return summ
+        context['summ_inc_tax'] = sum_income_tax
+
+
+        def sum_salary():
+            summ = 0
+            for item in processed_request:
+                print(item.worker, item.accrued - item.accrued * 0.13)
+                for i in [item.accrued - item.accrued * 0.13]:
+                    summ += i
+            return summ
+        context['summ_salary'] = sum_salary
+
+
+        def sum_singl_tax():
+            summ = 0
+            for item in processed_request:
+                print(item.worker, item.accrued * 0.3)
+                for i in [item.accrued * 0.3]:
+                    summ += i
+            return summ
+        context['summ_singl_tax'] = sum_singl_tax
+
+        def sum_injury_insurance():
+            summ = 0
+            for item in processed_request:
+                print(item.worker, item.accrued * 0.004)
+                for i in [item.accrued * 0.004]:
+                    summ += i
+            return summ
+        context['summ_injury_insurance'] = sum_injury_insurance
+
+
+
+        
+        # int_sum = float(context['summ'])
         # print(int_sum * 0.0010)
         # context['single_tax'] = int_sum * 0.3
         # context['injury_insurance'] = int_sum * 0.004
